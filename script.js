@@ -28,7 +28,6 @@
 //   };
 // };
 
-window.addEventListener("scroll", scrollTrans);
 
 function Color(id, name, word){
     this.id = id;
@@ -57,11 +56,13 @@ var colors = [red, orange, yellow, green, blue, indigo, purple, black, grey, pin
 
 var mainDiv = document.createElement("div")
 mainDiv.className = "iliketo";
-document.body.appendChild(mainDiv);
+document.getElementsByClassName("container")[0].appendChild(mainDiv);
 var iLikeTo = document.getElementsByClassName("iliketo");
 var width = 10000;
 var widthStr = width.toString() + "px";
 iLikeTo[0].style.width = widthStr;
+iLikeTo[0].style.position= "fixed";
+iLikeTo[0].style.overflow = "hidden";
 var colorNum = colors.length;
 var partsNum = colorNum * 4;
 var parts = width/partsNum
@@ -75,7 +76,9 @@ iLikeTo[0].style.border = "solid black 10px";
 iLikeTo[0].style.height = "300px";
 var stop = 0;
 
-function scrollTrans(){
+makeMoves();
+
+function makeMoves(){
 	if (stop < colors.length){
   		for (i=0; i<colors.length; i++){
   			var newMove = document.createElement("div");
@@ -96,6 +99,13 @@ function scrollTrans(){
 	};
 }
 
+
+// document.getElementsByClassName("container")[0].addEventListener("scroll", scrollTrans());
+window.addEventListener("scroll", scrollTrans);
+
+function scrollTrans(){
+    iLikeTo[0].style.transform = "translate(-5000px, 0)";
+}
 
 
 
