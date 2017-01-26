@@ -2,20 +2,28 @@ body{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	overflow-x:;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
-.container{
+.body-container{
 	flex: 1;
 	width: 10000px;
-	height: 90vH;
+	height: 100vH;
 	overflow: hidden;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
 }
 
-.iliketo{ 
+.bar-container{ 
+	border : solid black 10px;
+	height: 300px;
+	width: 10090px;
+	overflow: hidden;
+	display: flex;
+	flex: 1;
 }
 
 .moveit{

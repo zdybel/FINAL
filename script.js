@@ -1,4 +1,4 @@
-function Color(id, name, word){
+function Job(id, name, word){
     this.id = id;
 	this.name = name;
 	this.word = word;
@@ -8,52 +8,45 @@ function Color(id, name, word){
  // }
 	};
 
-var red = new Color('1','red', 'Are');
-var orange = new Color('2', 'orange', 'you');
-var yellow = new Color('3','yellow', 'diggin');
-var green = new Color('4', 'green', 'this');
-var blue = new Color('5', 'blue', 'whole');
-var indigo = new Color('6', 'indigo', 'javascript');
-var purple = new Color('7', 'purple', 'nonesense?');
-var black = new Color('8', 'black', 'Is');
-var grey = new Color('9', 'grey', 'it');
-var pink = new Color('10', 'pink', 'fun?');
+var red = new Job('1','red', 'Are');
+var orange = new Job('2', 'orange', 'you');
+var yellow = new Job('3','yellow', 'diggin');
+var green = new Job('4', 'green', 'this');
+var blue = new Job('5', 'blue', 'whole');
+var indigo = new Job('6', 'indigo', 'javascript');
+var purple = new Job('7', 'purple', 'nonesense?');
+var black = new Job('8', 'black', 'Is');
+var grey = new Job('9', 'grey', 'it');
+var pink = new Job('10', 'pink', 'fun?');
 
-var colors = [red, orange, yellow, green, blue, indigo, purple, black, grey, pink];
+var jobs = [red, orange, yellow, green, blue, indigo, purple, black, grey, pink];
 
-var container = document.getElementsByClassName("container")[0];
+var bodyContainer = document.getElementsByClassName("body-container")[0];
+var barContainer = document.getElementsByClassName("bar-container")[0];
 
-var mainDiv = document.createElement("div")
-mainDiv.className = "iliketo";
-container.appendChild(mainDiv);
-var iLikeTo = document.getElementsByClassName("iliketo");
-var iLikeToStyle = document.getElementsByClassName("iliketo")[0].style;
-var width = 10000;
-var partsNum = colors.length * 4;
+var width = barContainer.clientWidth;
+var partsNum = jobs.length * 4;
 var parts = width/partsNum
 var elementsSides = parts * 2;
-iLikeToStyle.border = "solid black 10px";
-iLikeToStyle.height = "300px";
-iLikeToStyle.width = width.toString() + "px";
-iLikeToStyle.overflow = "hidden";
+
 var stop = 0;
 
-makeMoves();
+makeJobCards();
 
-function makeMoves(){
-	if (stop < colors.length){
-  		for (i=0; i<colors.length; i++){
-  			var newMove = document.createElement("div");
-			newMove.className = "moveit"
-			newMove.style.display = "inline-block";
-			newMove.style.height = "200px";
-			newMove.style.width = elementsSides.toString() + "px";
-			newMove.style.margin = "50px " + parts.toString() + "px";
-			newMove.style.background = colors[i].name;
-			newMove.innerHTML = colors[i].word;
-			newMove.style.fontSize = "40px";
-			newMove.color = 'white';
-   			iLikeTo[0].appendChild(newMove);
+function makeJobCards(){
+	if (stop <= jobs.length){
+  		for (var i=0; i<jobs.length; i++){
+  			var currentJob = document.createElement("div");
+			currentJob.className = "moveit"
+			currentJob.style.display = "inline-block";
+			currentJob.style.height = "200px";
+			currentJob.style.width = elementsSides.toString() + "px";
+			currentJob.style.margin = "50px " + parts.toString() + "px";
+			currentJob.style.background = jobs[i].name;
+			currentJob.innerHTML = jobs[i].word;
+			currentJob.style.fontSize = "40px";
+			currentJob.color = 'white';
+   			barContainer.appendChild(currentJob);
    			stop+=1;
    		};
 	};
@@ -80,8 +73,8 @@ function listener(e) {
     // node.scrollTop -= 10 * e.delta;
 }
 
-if ('onmousewheel' in container) {
-    container.onmousewheel = function(e) {
+if ('onmousewheel' in bodyContainer) {
+    bodyContainer.onmousewheel = function(e) {
         e = e || window.event;
         listener(e);
         if (e.delta > 0){
@@ -94,7 +87,7 @@ if ('onmousewheel' in container) {
         console.log(e.delta);
     };
 } else {
-    node.addEventListener('DOMMouseScroll', listener)
+    bodyContainer.addEventListener('DOMMouseScroll', listener)
 }
 
 
