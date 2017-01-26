@@ -49,6 +49,7 @@ function makeMoves(){
 			newMove.style.width = elementsSides.toString() + "px";
 			newMove.style.margin = "50px " + parts.toString() + "px";
 			newMove.style.background = colors[i].name;
+			// newMMove.style.transform = "translate(0, 400px)";
 			newMove.innerHTML = colors[i].word;
 			newMove.style.fontSize = "40px";
 			newMove.color = 'white';
@@ -64,6 +65,11 @@ window.addEventListener("scroll", scrollTrans);
 
 function scrollTrans(){
     iLikeTo[0].style.transform = "translate(-5000px, 0)";
+    	// newMMove.style.transform = "translate(0, 400px)";
+    moveIt = document.getElementsByClassName("moveit")
+    for(var i = 0; i < moveIt.length; i++){
+ 	   	moveIt[i].style.transform = "rotate(7deg)";
+ 	};	
 }
 
 
