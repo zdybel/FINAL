@@ -62,15 +62,15 @@ function makeMoves(){
 }
 
 
-document.getElementsByClassName("container")[0].addEventListener("mousewheel", function(event){
-	var container = event.target;
-	if(container.nodeName == "DIV"){
-		window.scrollBy(20, 0);
-	};
-	// };
+// document.getElementsByClassName("container")[0].addEventListener("mousewheel", function(event){
+// 	var container = event.target;
+// 	if(container.nodeName == "DIV"){
+// 		window.scrollBy(20, 0);
+// 	};
+// 	// };
 	
-	console.log(container.nodeName);
-});
+// 	console.log(container.nodeName);
+// });
 
 
 
@@ -105,8 +105,16 @@ if ('onmousewheel' in node) {
     node.onmousewheel = function(e) {
         e = e || window.event;
         listener(e);
-          console.log(e.delta);
-    }
+        if (e.delta > 0){
+      
+        	window.scrollBy(-20, 0);
+        }
+        if (e.delta < 0){
+     
+        			window.scrollBy(20, 0);
+        };
+        console.log(e.delta);
+    };
     console.log("onmousewheel in node");
 } else {
     node.addEventListener('DOMMouseScroll', listener)
