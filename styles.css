@@ -1,6 +1,7 @@
 .container{
 	width: 10000px;
 	height: 100vH;
+	overflow: hidden;
 /*	position: fixed;*/
 /*	transition: 2s, transform;*/
 }

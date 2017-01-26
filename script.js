@@ -73,3 +73,62 @@ document.getElementsByClassName("container")[0].addEventListener("mousewheel", f
 });
 
 
+
+
+
+function normalize_mousewheel(e) {
+    var //o = e.originalEvent,
+        o = e,
+        d = o.detail, w = o.wheelDelta,
+        n = 225, n1 = n-1;
+    
+    // Normalize delta
+    d = d ? w && (f = w/d) ? d/f : -d/1.35 : w/120;
+    // Quadratic scale if |d| > 1
+    d = d < 1 ? d < -1 ? (-Math.pow(d, 2) - n1) / n : d : (Math.pow(d, 2) + n1) / n;
+    // Delta *should* not be greater than 2...
+    e.delta = Math.min(Math.max(d / 2, -1), 1);
+    // console.log(e.delta);
+}
+
+
+
+/* Quick cross browser event attach - this is bad mmkay */
+var node = document.getElementsByClassName('container')[0];
+
+function listener(e) {
+    normalize_mousewheel(e);
+    // node.scrollTop -= 10 * e.delta;
+}
+
+if ('onmousewheel' in node) {
+    node.onmousewheel = function(e) {
+        e = e || window.event;
+        listener(e);
+          console.log(e.delta);
+    }
+    console.log("onmousewheel in node");
+} else {
+    node.addEventListener('DOMMouseScroll', listener)
+}
+
+
+
+
+// var wheelDistance = function(evt){
+//   if (!evt) evt = event;
+//   var w=evt.wheelDelta, d=evt.detail;
+//   if (d){
+//     if (w) return w/d/40*d>0?1:-1; // Opera
+//     else return -d/3;              // Firefox;         TODO: do not /3 for OS X
+//   } else return w/120;             // IE/Safari/Chrome TODO: /3 for Chrome OS X
+// };
+
+// var wheelDirection = function(evt){
+//   if (!evt) evt = event;
+//   return (evt.detail<0) ? 1 : (evt.wheelDelta>0) ? 1 : -1;
+//   console.log(evt.wheelDelta);
+// };
+
+// console.log("wheelDistance: " + wheelDistance);
+// console.log("wheelDirection: " + wheelDirection);
