@@ -11,7 +11,7 @@ body{
 
 .body-container{
 	flex: 1;
-	width: $width-sliding-div-desktop;
+	//example: $example-variable;
 	height: 100vH;
 	overflow: hidden;
 	display: flex;
@@ -32,7 +32,8 @@ body{
 }
 
 .job-cell{
-	// display: flex;
+	border: dotted grey 10px;
+	height: 100vH;
 }
 
 .job{

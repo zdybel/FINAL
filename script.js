@@ -24,7 +24,7 @@ window.onload = function() {
 	var pink = new Job('10', 'pink', 'fun?');
 
 	//set array of job variables to be looped through later. 
-	var jobs = [red, orange, yellow, green, blue, indigo];
+	var jobs = [red, orange, yellow, green, blue, indigo, purple, black, grey, pink];
 
 	//set variable for veiwport width.
 	var viewportWidth = document.documentElement.clientWidth;
@@ -61,16 +61,14 @@ function changeViewportWidth(){
 	columns = jobs.length * 12;
 	columnPx = width/columns
 	elementsSides = columnPx * 4;
-	bodyContainer.width = storyboardWidth.toString() + "px";
-	storyboardContainer.width = storyboardWidth.toString() + "px";
+	bodyContainer.style.width = storyboardWidth.toString() + "px";
+	storyboardContainer.style.width = storyboardWidth.toString() + "px";
 	for (var i=0; i<jobs.length; i++){
-		var currentJobCell = document.getElementsByClassName("job-cell")[i];
-		var currentJob = document.getElementsByClassName("job")[i];
 		document.getElementsByClassName("job-cell")[i].style.width = viewportWidth.toString() + "px";
+		var currentJob = document.getElementsByClassName("job")[i];
 		currentJob.style.width = elementsSides.toString() + "px";
 		currentJob.style.marginLeft = elementsSides.toString() + "px";
 		currentJob.style.marginRight = elementsSides.toString() + "px";
-		// document.getElementsByClassName("job")[i].style.margin = "50px " + elementSides.toString() + "px";
 	}
 };
 
