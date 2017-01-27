@@ -69,7 +69,13 @@ window.onload = function() {
 			currentJob.style.width = elementsSides.toString() + "px";
 			currentJob.style.marginLeft = elementsSides.toString() + "px";
 			currentJob.style.marginRight = elementsSides.toString() + "px";
+		};
+		if(viewportWidth >= 490){
+			sideScroll();
 		}
+		else if(viewportWidth < 490){
+			mobileScroll();
+		};
 	};
 
 
@@ -127,24 +133,34 @@ window.onload = function() {
 	}
 
 	//this function takes the mousewheel event, sends it through the above section (which sends it through normalize_mousewheel), and then tells the body_container div to move right if delta is positive(scroll up) and left if delta is negative(scroll down).
+	function sideScroll(){
 		var bodyContainer = document.getElementsByClassName("body-container")[0];
-	if ('onmousewheel' in bodyContainer) {
-	    bodyContainer.onmousewheel = function(e) {
-	        e = e || window.event;
-	        listener(e);
-	        if (e.delta > 0){      
-	        	window.scrollBy(-25, 0);
-	        }
-	        if (e.delta < 0){
-	     		window.scrollBy(25, 0);
-	        };
-	        console.log(e.delta);
-	    };
-	} else {
-	    bodyContainer.addEventListener('DOMMouseScroll', listener)
+		if ('onmousewheel' in bodyContainer) {
+		    bodyContainer.onmousewheel = function(e) {
+		        e = e || window.event;
+		        listener(e);
+		        if (e.delta > 0){      
+		        	window.scrollBy(-25, 0);
+		        }
+		        if (e.delta < 0){
+		     		window.scrollBy(25, 0);
+		        };
+		        console.log(e.delta);
+		    };
+		} else {
+		    bodyContainer.addEventListener('DOMMouseScroll', listener)
+		};
+	};
+
+	function mobileScroll(){
+		document.getElementsByTagName("body")[0].style.overflowY = "auto"; 
+		window.addEventListener("scroll", function(){
+			document.getElementsByClassName("body-container")[0].translate(25, 0);
+		});
 	};
 
 };
+
 
 
 	var viewportWidth = document.documentElement.clientWidth;
