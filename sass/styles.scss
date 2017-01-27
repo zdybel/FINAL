@@ -20,15 +20,19 @@ body{
 	align-items: center;
 }
 
-.bar-container{ 
+.storyboard-container{ 
 	border : solid black 10px;
-	height: 300px;
+	height: 100vh;
 	width: 10090px;
 	overflow: hidden;
 	display: flex;
 	flex: 1;
 }
 
-.moveit{
+.job-cell{
+
+}
+
+.job{
   transition: 2s, transform; 
-};
+}
