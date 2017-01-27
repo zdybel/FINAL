@@ -4,7 +4,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
-html, body, h1, h2, h3, ul, li {
+html, body, div, h1, h2, h3, ul, li {
   padding: 0px;
   margin: 0px; }
 
@@ -33,12 +33,14 @@ body {
   align-items: center; }
 
 .storyboard-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   border: solid black 10px;
   height: 100vh;
-  width: 10090px;
-  overflow: hidden;
-  display: flex;
-  flex: 1; }
+  overflow: hidden; }
 
 .job {
   transition: 2s, transform; }

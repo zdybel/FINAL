@@ -53,24 +53,29 @@ window.onload = function() {
 	window.addEventListener("resize", changeViewportWidth);
 
 
-//change viewportWidth variable to current viewport width.
+//change viewportWidth variable to current viewport width and set elements widths accordingly.
 function changeViewportWidth(){
 	viewportWidth = document.documentElement.clientWidth;
 	storyboardWidth = viewportWidth*jobs.length;
 	width = storyboardWidth;
-	partsNum = jobs.length * 4;
-	parts = width/partsNum
-	elementsSides = parts * 2;
+	columns = jobs.length * 12;
+	columnPx = width/columns
+	elementsSides = columnPx * 4;
 	bodyContainer.width = storyboardWidth.toString() + "px";
-	storyboardContainer = storyboardWidth.toString() + "px";
+	storyboardContainer.width = storyboardWidth.toString() + "px";
 	for (var i=0; i<jobs.length; i++){
-		document.getElementsByClassName("job-cell")[i].width = viewportWidth.toString() + "px";
-		document.getElementsByClassName("job")[i].width = elementsSides.toString() + "px";
+		var currentJobCell = document.getElementsByClassName("job-cell")[i];
+		var currentJob = document.getElementsByClassName("job")[i];
+		document.getElementsByClassName("job-cell")[i].style.width = viewportWidth.toString() + "px";
+		currentJob.style.width = elementsSides.toString() + "px";
+		currentJob.style.marginLeft = elementsSides.toString() + "px";
+		currentJob.style.marginRight = elementsSides.toString() + "px";
+		// document.getElementsByClassName("job")[i].style.margin = "50px " + elementSides.toString() + "px";
 	}
 };
 
 
-//this function makes cards for each of the jobs, with sizes based on width of bar-container div.
+//this function makes cards for each of the jobs, with sizes based on width of storyboard div.
 function makeJobCards(){
 	//set varaible that is used in if statement in makeJobCards so that the for loop only runs as many times as there are jobs.
 	var stop = 0;
@@ -87,7 +92,10 @@ function makeJobCards(){
 			currentJob.style.display = "inline-block";
 			currentJob.style.height = "200px";
 			currentJob.style.width = elementsSides.toString() + "px";
-			currentJob.style.margin = "50px " + parts.toString() + "px";
+			currentJob.style.marginTop = "50px"
+			currentJob.style.marginBottom = "50px";
+			currentJob.style.marginLeft = elementsSides.toString() + "px";
+			currentJob.style.marginRight = elementsSides.toString() + "px";
 			currentJob.style.background = jobs[i].name;
 			currentJob.innerHTML = jobs[i].word;
 			currentJob.style.fontSize = "40px";
@@ -139,6 +147,10 @@ if ('onmousewheel' in bodyContainer) {
 };
 
 };
+
+
+	var viewportWidth = document.documentElement.clientWidth;
+
 // $(document).ready(function(){
 //     $('.jumbotron').hide();
 //     $('.jumbotron').fadeIn(5000);
