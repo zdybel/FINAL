@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: hidden; }
+
+.body-container {
+  flex: 1;
+  width: 10000px;
+  height: 100vH;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; }
+
+.bar-container {
+  border: solid black 10px;
+  height: 300px;
+  width: 10090px;
+  overflow: hidden;
+  display: flex;
+  flex: 1; }
+
+.moveit {
+  transition: 2s, transform; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,3 +1,5 @@
+@import 'size-variables';
+
 body{
 	display: flex;
 	flex-direction: column;
@@ -8,7 +10,7 @@ body{
 
 .body-container{
 	flex: 1;
-	width: 10000px;
+	width: $width-sliding-div-desktop;
 	height: 100vH;
 	overflow: hidden;
 	display: flex;
