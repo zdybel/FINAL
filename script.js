@@ -29,6 +29,7 @@ window.onload = function() {
 	//set variable for veiwport width.
 	var viewportWidth = document.documentElement.clientWidth;
 	var storyboardWidth = viewportWidth*jobs.length;
+	var viewportHeight = document.documentElement.clientHeight;
 
 	//set variables for DOM elements for readability. 
 	var bodyContainer = document.getElementsByClassName("body-container")[0];
@@ -42,6 +43,8 @@ window.onload = function() {
 	var fourColumns = columnPx * 4;
 	var eightColumns = columnPx * 8;
 	var twelveColumns = columnPx * 12;
+	var fifthHeight = viewportHeight * .2;
+	var fifthHeightNeg = viewportHeight * -.2;
 
 	// //set varaible that is used in if statement in makeJobCards so that the for loop only runs as many times as there are jobs.
 	// var stop = 0;
@@ -57,12 +60,17 @@ window.onload = function() {
 
 	//change viewportWidth variable to current viewport width and set elements widths accordingly.
 	function changeViewportWidth(){
+		//reset variables according to new viewport width
 		viewportWidth = document.documentElement.clientWidth;
 		storyboardWidth = viewportWidth*jobs.length;
 		width = storyboardWidth;
-		// columns = jobs.length * 12;
-		// columnPx = width/columns
-		// elementsSides = columnPx * 4;
+		totalColumns = jobs.length * 12;
+		columnPx = width/totalColumns
+		twoColumns = columnPx * 2;
+		fourColumns = columnPx * 4;
+		eightColumns = columnPx * 8;
+		twelveColumns = columnPx * 12;
+		//reset size of all the things according to new variables
 		bodyContainer.style.width = storyboardWidth.toString() + "px";
 		storyboardContainer.style.width = storyboardWidth.toString() + "px";
 		for (var i=0; i<jobs.length; i++){
@@ -105,6 +113,8 @@ window.onload = function() {
 	   			var currentJobTitle = document.createElement("div");
 	   			currentJobTitle.className = "job-content-title";
 	   			currentJobTitle.innerHTML = jobs[i].word;
+	   			currentJobTitle.style.height = fifthHeight.toString() + "px";
+	   			currentJobTitle.style.marginTop = fifthHeightNeg.toString() + "px";
 	   			currentJobContent.appendChild(currentJobTitle);
 	   			stop+=1;
 	   		};
@@ -162,110 +172,42 @@ window.onload = function() {
 		});
 	};
 
-	var thismargin = -100;
+	var thismargin = -200;
 	function scrollForward(){
-		// var twoColumns = parts * 2;
-		// var eightColumns = parts*8;
-		// var twelveColumns = parts*12;
-		// if(window.scrollX > parts && window.scrollX < eightColumns){
-		// 	document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
-		// 		thismargin = thismargin + 5;
-		// }
-		// console.log("scrolling forward");
 		for(var i=0; i<jobs.length; i++){
 			element = document.getElementsByClassName('job-content-title')[i];
     		marginTopString = window.getComputedStyle(element)['marginTop'];
-    		marginTopInt = marginTopString.replace("px", "");
-    		var margin = marginTopInt + thismargin;
-    		// marginTopInt = marginTopStringRemovePx.parseInt();
-    		// console.log(marginTopStringRemovePx*2);
-    		if(marginTopInt < 200){
-    			// top = style.getPropertyValue('margin-top');
-    			// console.log(top + " TOPTOPTOP");
+    		marginTop = marginTopString.replace("px", "");
+    		marginTopInt = parseInt(marginTop);
+    		var margin = marginTopInt + Math.abs(thismargin);
+    		if(marginTopInt <= 200){
 				if(window.scrollX > columnPx && window.scrollX < eightColumns){
 					document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
-					thismargin = thismargin -5;
+					thismargin = thismargin + .05;
 				};
 			};
 		};
 	};
+	
 	function scrollBackward(){
-		// var twoColumns = parts * 2;
-		// var eightColumns = parts*8;
-		// var twelveColumns = parts*12;
 		for(var i=0; i<jobs.length; i++){
 			element = document.getElementsByClassName('job-content-title')[i];
     		marginTopString = window.getComputedStyle(element)['marginTop'];
-    		marginTopInt = marginTopString.replace("px", "");
-    		var margin = marginTopInt+thismargin;
-    		// marginTopInt = marginTopStringRemovePx.parseInt();
-    		console.log(marginTopInt+thismargin);
-    		if(marginTopInt < 200){
-    			// top = style.getPropertyValue('margin-top');
-    			// console.log(top + " TOPTOPTOP");
+    		marginTop = marginTopString.replace("px", "");
+    		marginTopInt = parseInt(marginTop);
+    		var margin = marginTopInt - Math.abs(thismargin);
+    		if(marginTopInt >= -100){
 				if(window.scrollX > columnPx && window.scrollX < eightColumns){
 					document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
-					thismargin = thismargin + 5;
+					thismargin = thismargin + .05;
+					console.log("here");
 				};
 			};
 		};
-		// console.log("backwards   "   + "this margin   " + thismargin + "   margin   " + margin);
 	};
-	function animate(){
-		// var twoColumns = columnPx*2;
-		// var eightColumns = columnPx*8;
-		// var twelveColumns = columnPx*12;
-		var marginTop = document.getElementsByClassName("job-content-title")[0].clientHeight;
-		var documentTop = document.documentElement.clientHeight;
-		// console.log(documentTop + "      document top");
-		// console.log(marginTop);
-		// console.log(thismargin + "  thismargin");
-		if(window.scrollX > twoColumns && window.scrollX < eightColumns){
-			// if(margin >= -100 && margin  < 20){
-			document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
-			thismargin = thismargin + 5;
-			// }
-			// if(margin >= 20 && margin < 690){
-			document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
-			thismargin = thismargin - 5;
-		};
-	};
-
 };
 
+var viewportWidth = document.documentElement.clientWidth;
 
 
-	var viewportWidth = document.documentElement.clientWidth;
-
-// $(document).ready(function(){
-//     $('.jumbotron').hide();
-//     $('.jumbotron').fadeIn(5000);
-
-//     $('.li').hover(function() {
-//     	$(this).slideToggle(1000);
-
-//     });
-
-
-//     $(function() {
-//     $(window).scroll( function(){
-    
-       
-//         $('.fadeIn').each( function(i){
-            
-//             var bottom_of_object = $(this).position().top + $(this).outerHeight();
-//             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-           
-//             bottom_of_window = bottom_of_window + 200;  
-          
-//             if( bottom_of_window > bottom_of_object ){
-                
-//                 $(this).animate({'opacity':'1'},4000);
-                    
-//             }
-//         }); 
-    
-//     });
-// });
 
