@@ -36,9 +36,12 @@ window.onload = function() {
 
 	//set variables for job cards based on width of bar-container div so that cards will always be spaced porportionately.
 	var width = storyboardWidth;
-	var partsNum = jobs.length * 4;
-	var parts = width/partsNum
-	var elementsSides = parts * 2;
+	var totalColumns = jobs.length * 12;
+	var columnPx = width/totalColumns
+	var twoColumns = columnPx * 2;
+	var fourColumns = columnPx * 4;
+	var eightColumns = columnPx * 8;
+	var twelveColumns = columnPx * 12;
 
 	// //set varaible that is used in if statement in makeJobCards so that the for loop only runs as many times as there are jobs.
 	// var stop = 0;
@@ -52,73 +55,22 @@ window.onload = function() {
 	//add event listener so when window changes, viewportWidth variable also changes.
 	window.addEventListener("resize", changeViewportWidth);
 
-	// //add event listener so when scroll occurs, animations occur
-	// window.addEventListener("scroll", animateJobs);
-
-	// function animateJobs(){
-	// 	// for(var i=0; i<jobs.length; i++){
-	// 		// var twoColumns = columnPx*2;
-	// 		// var eightColumns = columnPx*8;
-	// 		// var twelveColumns = columnPx*12;
-	// 		// var marginTop = document.getElementsByClassName("job-content-title")[0].clientHeight;
-	// 		// var documentTop = document.documentElement.clientHeight;
-	// 		// console.log(documentTop + "      document top");
-	// 		// console.log(marginTop);
-	// 		// console.log(thismargin + "  thismargin");
-	// 		// if(window.scrollX > twoColumns && window.scrollX < eightColumns){
-	// 		// 	// if(margin >= -100 && margin  < 20){
-	// 		// 		document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
-	// 		// 		thismargin = thismargin + 5;
-	// 		// 	// }
-	// 		// 	// if(margin >= 20 && margin < 690){
-	// 		// 		document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
-	// 		// 		thismargin = thismargin - 5;
-	// 			// }
-	// 			// if(thismargin <){}
-	// 			// document.getElementsByClassName("job-content-title")[0].style.marginTop = 2px; 
-	// 			// console.log(thismargin + " client height");
-	// 			// var height = document.getElementsByClassName("job-content-title")[0].clientHeight;
-				
-	// 			// if(thismargin >= 20 && )
-	// 			margin = margin + 5;
-	// 			// console.log(document.getElementsByClassName("job")[0].offsetLeft + "offsetleftjob");
-	// 			// console.log("margin    " + margin);
-	// 		}
-	// 		if(window.scrollX >= eightColumns && window.scrollX < columnPx*12){
-
-	// 		}
-	// 	// };
-	// 	// var viewportWidth = document.documentElement.clientWidth;
-	// 	// document.getElementsByClassName("storyboard-container")[0].style.background = red;
-	// 	// if(document.documentElement.scrollLeft >1300){
-	// 	// if (viewportWidth > 1300){
-	// 		// console.log("scroll" + document.documentElement.scrollLeft);
-	// 	// if(window.scrollX >= document.getElementsByClassName("job-cell")){
-
-	// 	// }
-	// 		// console.log("scrollx" + window.scrollX);
-	// 		// console.log("last card" + document.getElementsByClassName("job-cell")[0].offsetLeft);
-	// 		// console.log("last cardMiddle" + document.getElementsByClassName("job")[0].offsetLeft);
-
-	// 	// }
-	// }; 
-
 	//change viewportWidth variable to current viewport width and set elements widths accordingly.
 	function changeViewportWidth(){
 		viewportWidth = document.documentElement.clientWidth;
 		storyboardWidth = viewportWidth*jobs.length;
 		width = storyboardWidth;
-		columns = jobs.length * 12;
-		columnPx = width/columns
-		elementsSides = columnPx * 4;
+		// columns = jobs.length * 12;
+		// columnPx = width/columns
+		// elementsSides = columnPx * 4;
 		bodyContainer.style.width = storyboardWidth.toString() + "px";
 		storyboardContainer.style.width = storyboardWidth.toString() + "px";
 		for (var i=0; i<jobs.length; i++){
 			document.getElementsByClassName("job-cell")[i].style.width = viewportWidth.toString() + "px";
 			var currentJob = document.getElementsByClassName("job")[i];
-			currentJob.style.width = elementsSides.toString() + "px";
-			currentJob.style.marginLeft = elementsSides.toString() + "px";
-			currentJob.style.marginRight = elementsSides.toString() + "px";
+			currentJob.style.width = fourColumns.toString() + "px";
+			currentJob.style.marginLeft = fourColumns.toString() + "px";
+			currentJob.style.marginRight = fourColumns.toString() + "px";
 		};
 		if(viewportWidth >= 490){
 			sideScroll();
@@ -142,9 +94,9 @@ window.onload = function() {
 	  			var currentJobCell = document.getElementsByClassName("job-cell")[i];
 	  			var currentJob = document.createElement("div");
 				currentJob.className = "job";
-				currentJob.style.width = elementsSides.toString() + "px";
-				currentJob.style.marginLeft = elementsSides.toString() + "px";
-				currentJob.style.marginRight = elementsSides.toString() + "px";
+				currentJob.style.width = fourColumns.toString() + "px";
+				currentJob.style.marginLeft = fourColumns.toString() + "px";
+				currentJob.style.marginRight = fourColumns.toString() + "px";
 				currentJob.style.background = jobs[i].name;
 	   			currentJobCell.appendChild(currentJob);
 	   			var currentJobContent = document.createElement("div");
@@ -212,9 +164,9 @@ window.onload = function() {
 
 	var thismargin = -100;
 	function scrollForward(){
-		var twoColumns = parts * 2;
-		var eightColumns = parts*8;
-		var twelveColumns = parts*12;
+		// var twoColumns = parts * 2;
+		// var eightColumns = parts*8;
+		// var twelveColumns = parts*12;
 		// if(window.scrollX > parts && window.scrollX < eightColumns){
 		// 	document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
 		// 		thismargin = thismargin + 5;
@@ -230,7 +182,7 @@ window.onload = function() {
     		if(marginTopInt < 200){
     			// top = style.getPropertyValue('margin-top');
     			// console.log(top + " TOPTOPTOP");
-				if(window.scrollX > parts && window.scrollX < eightColumns){
+				if(window.scrollX > columnPx && window.scrollX < eightColumns){
 					document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
 					thismargin = thismargin -5;
 				};
@@ -238,9 +190,9 @@ window.onload = function() {
 		};
 	};
 	function scrollBackward(){
-		var twoColumns = parts * 2;
-		var eightColumns = parts*8;
-		var twelveColumns = parts*12;
+		// var twoColumns = parts * 2;
+		// var eightColumns = parts*8;
+		// var twelveColumns = parts*12;
 		for(var i=0; i<jobs.length; i++){
 			element = document.getElementsByClassName('job-content-title')[i];
     		marginTopString = window.getComputedStyle(element)['marginTop'];
@@ -251,7 +203,7 @@ window.onload = function() {
     		if(marginTopInt < 200){
     			// top = style.getPropertyValue('margin-top');
     			// console.log(top + " TOPTOPTOP");
-				if(window.scrollX > parts && window.scrollX < eightColumns){
+				if(window.scrollX > columnPx && window.scrollX < eightColumns){
 					document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
 					thismargin = thismargin + 5;
 				};
@@ -260,9 +212,9 @@ window.onload = function() {
 		// console.log("backwards   "   + "this margin   " + thismargin + "   margin   " + margin);
 	};
 	function animate(){
-		var twoColumns = columnPx*2;
-		var eightColumns = columnPx*8;
-		var twelveColumns = columnPx*12;
+		// var twoColumns = columnPx*2;
+		// var eightColumns = columnPx*8;
+		// var twelveColumns = columnPx*12;
 		var marginTop = document.getElementsByClassName("job-content-title")[0].clientHeight;
 		var documentTop = document.documentElement.clientHeight;
 		// console.log(documentTop + "      document top");
