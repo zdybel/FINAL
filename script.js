@@ -40,6 +40,10 @@ window.onload = function() {
 	var parts = width/partsNum
 	var elementsSides = parts * 2;
 
+
+//**********************************#@$@$@!#$!#@$!@#$@!
+var thismargin = -100;
+var margin = -100;
 	// //set varaible that is used in if statement in makeJobCards so that the for loop only runs as many times as there are jobs.
 	// var stop = 0;
 
@@ -58,11 +62,30 @@ window.onload = function() {
 	function animateJobs(){
 		// for(var i=0; i<jobs.length; i++){
 			var twoColumns = columnPx*2;
-			if(window.scrollX > twoColumns){
-				document.getElementsByClassName("job-content-title")[0].style.color = "red";
-				document.getElementsByClassName("job-content-title")[0].style.transform= "rotate(7deg)";
-				console.log(twoColumns + "  vpw");
+			var eightColumns = columnPx*8;
+			var marginTop = document.getElementsByClassName("job-content-title")[0].clientHeight;
+			var documentTop = document.documentElement.clientHeight;
+			console.log(documentTop + "      document top");
+			console.log(marginTop);
+			console.log(thismargin + "  thismargin");
+			if(window.scrollX > twoColumns && window.scrollX < eightColumns){
+				if(margin >= -100 && margin  < 20){
+					document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
+				thismargin = thismargin + 5;
+				}
+				if(margin >= 20 && margin < 690){
+					document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
+					thismargin = thismargin - 5;
+				}
+				// if(thismargin <){}
+				// document.getElementsByClassName("job-content-title")[0].style.marginTop = 2px; 
+				// console.log(thismargin + " client height");
+				// var height = document.getElementsByClassName("job-content-title")[0].clientHeight;
+				
+				// if(thismargin >= 20 && )
+				margin = margin + 5;
 				console.log(document.getElementsByClassName("job")[0].offsetLeft + "offsetleftjob");
+				console.log("margin    " + margin);
 			}
 		// };
 		// var viewportWidth = document.documentElement.clientWidth;
