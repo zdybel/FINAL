@@ -45,6 +45,7 @@ window.onload = function() {
 	var twelveColumns = columnPx * 12;
 	var fifthHeight = viewportHeight * .2;
 	var fifthHeightNeg = viewportHeight * -.2;
+	var thirdWidth = viewportWidth * (1/3);
 
 	// //set varaible that is used in if statement in makeJobCards so that the for loop only runs as many times as there are jobs.
 	// var stop = 0;
@@ -156,12 +157,7 @@ window.onload = function() {
 		        }
 		        if (e.delta < 0){
 		     		window.scrollBy(25, 0);
-		     		// console.log(e.delta);
 		     		scrollForward();
-		     		console.log(document.getElementsByClassName("job-cell")[0].offsetLeft);
-		     		console.log(document.getElementsByClassName("job-cell")[1].offsetLeft);
-		     		console.log(document.getElementsByClassName("job-cell")[2].offsetLeft);
-		     		console.log(document.getElementsByClassName("job-cell")[3].offsetLeft);
 				}
 			}
 		} else {
@@ -184,10 +180,14 @@ window.onload = function() {
     		marginTop = marginTopString.replace("px", "");
     		marginTopInt = parseInt(marginTop);
     		var margin = marginTopInt + Math.abs(thismargin);
-    		if(marginTopInt <= 200){
-				if(window.scrollX > columnPx && window.scrollX < eightColumns){
+    		var widths = (viewportWidth * (i-1)) + 300;
+    		var widthsAndAThird = widths + thirdWidth;
+    		if(window.scrollX >= widthsAndAThird){
+    			if(marginTopInt <= 200){
 					document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
 					thismargin = thismargin + .05;
+					console.log("window scrollx     " +   window.scrollX);
+					console.log(i);
 				};
 			};
 		};
@@ -204,7 +204,6 @@ window.onload = function() {
 				if(window.scrollX > columnPx && window.scrollX < eightColumns){
 					document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
 					thismargin = thismargin + .05;
-					console.log("here");
 				};
 			};
 		};
