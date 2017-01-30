@@ -47,6 +47,26 @@ body {
   height: 100vH; }
 
 .job {
-  transition: 2s, transform; }
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  transition: 2s, transform;
+  height: 100vH; }
+
+  .job-content {
+    height: 20vH;
+    width: 100%;
+    background-color: white;
+    font-size: 40px;
+    color: black;
+  }
+
+  .job-content-title{
+    height: 10vH;
+    width: 80%;
+    margin: 0 auto;
+    border: dotted grey 5px;
+    text-align: center;
+  }
 
 /*# sourceMappingURL=styles.css.map */
