@@ -40,10 +40,6 @@ window.onload = function() {
 	var parts = width/partsNum
 	var elementsSides = parts * 2;
 
-
-//**********************************#@$@$@!#$!#@$!@#$@!
-var thismargin = -100;
-var margin = -100;
 	// //set varaible that is used in if statement in makeJobCards so that the for loop only runs as many times as there are jobs.
 	// var stop = 0;
 
@@ -198,7 +194,7 @@ var margin = -100;
 		        }
 		        if (e.delta < 0){
 		     		window.scrollBy(25, 0);
-		     		console.log(e.delta);
+		     		// console.log(e.delta);
 		     		scrollForward();
 				}
 			}
@@ -213,25 +209,55 @@ var margin = -100;
 			document.getElementsByClassName("body-container")[0].translate(25, 0);
 		});
 	};
+
+	var thismargin = -100;
 	function scrollForward(){
 		var twoColumns = parts * 2;
 		var eightColumns = parts*8;
 		var twelveColumns = parts*12;
-		if(window.scrollX > parts && window.scrollX < eightColumns){
-			document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
-				thismargin = thismargin + 5;
-		}
-		console.log("scrolling forward");
+		// if(window.scrollX > parts && window.scrollX < eightColumns){
+		// 	document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
+		// 		thismargin = thismargin + 5;
+		// }
+		// console.log("scrolling forward");
+		for(var i=0; i<jobs.length; i++){
+			element = document.getElementsByClassName('job-content-title')[i];
+    		marginTopString = window.getComputedStyle(element)['marginTop'];
+    		marginTopInt = marginTopString.replace("px", "");
+    		var margin = marginTopInt + thismargin;
+    		// marginTopInt = marginTopStringRemovePx.parseInt();
+    		// console.log(marginTopStringRemovePx*2);
+    		if(marginTopInt < 200){
+    			// top = style.getPropertyValue('margin-top');
+    			// console.log(top + " TOPTOPTOP");
+				if(window.scrollX > parts && window.scrollX < eightColumns){
+					document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
+					thismargin = thismargin -5;
+				};
+			};
+		};
 	};
 	function scrollBackward(){
 		var twoColumns = parts * 2;
 		var eightColumns = parts*8;
 		var twelveColumns = parts*12;
-		console.log("scrolling backward");
-		if(window.scrollX > parts && window.scrollX < eightColumns){
-			document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
-			thismargin = thismargin - 5;
-		}
+		for(var i=0; i<jobs.length; i++){
+			element = document.getElementsByClassName('job-content-title')[i];
+    		marginTopString = window.getComputedStyle(element)['marginTop'];
+    		marginTopInt = marginTopString.replace("px", "");
+    		var margin = marginTopInt+thismargin;
+    		// marginTopInt = marginTopStringRemovePx.parseInt();
+    		console.log(marginTopInt+thismargin);
+    		if(marginTopInt < 200){
+    			// top = style.getPropertyValue('margin-top');
+    			// console.log(top + " TOPTOPTOP");
+				if(window.scrollX > parts && window.scrollX < eightColumns){
+					document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
+					thismargin = thismargin + 5;
+				};
+			};
+		};
+		// console.log("backwards   "   + "this margin   " + thismargin + "   margin   " + margin);
 	};
 	function animate(){
 		var twoColumns = columnPx*2;
