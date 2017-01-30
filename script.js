@@ -56,6 +56,15 @@ window.onload = function() {
 	window.addEventListener("scroll", animateJobs);
 
 	function animateJobs(){
+		// for(var i=0; i<jobs.length; i++){
+			var twoColumns = columnPx*2;
+			if(window.scrollX > twoColumns){
+				document.getElementsByClassName("job-content-title")[0].style.color = "red";
+				document.getElementsByClassName("job-content-title")[0].style.transform= "rotate(7deg)";
+				console.log(twoColumns + "  vpw");
+				console.log(document.getElementsByClassName("job")[0].offsetLeft + "offsetleftjob");
+			}
+		// };
 		// var viewportWidth = document.documentElement.clientWidth;
 		// document.getElementsByClassName("storyboard-container")[0].style.background = red;
 		// if(document.documentElement.scrollLeft >1300){
@@ -64,8 +73,9 @@ window.onload = function() {
 		// if(window.scrollX >= document.getElementsByClassName("job-cell")){
 
 		// }
-		// 	console.log("scrollx" + window.scrollX);
-		// 	console.log("last card" + document.getElementsByClassName("job-cell")[9].offsetLeft);
+			// console.log("scrollx" + window.scrollX);
+			// console.log("last card" + document.getElementsByClassName("job-cell")[0].offsetLeft);
+			// console.log("last cardMiddle" + document.getElementsByClassName("job")[0].offsetLeft);
 
 		// }
 	}; 
@@ -104,35 +114,22 @@ window.onload = function() {
 	  		for (var i=0; i<jobs.length; i++){
 	  			var jobCell = document.createElement("div");
 	  			jobCell.className = "job-cell";
-	  			// jobCell.style.height = "100vh";
 	  			jobCell.style.width = viewportWidth.toString() + "px";
 	  			storyboardContainer.appendChild(jobCell);
 	  			var currentJobCell = document.getElementsByClassName("job-cell")[i];
 	  			var currentJob = document.createElement("div");
 				currentJob.className = "job";
-				// currentJob.style.display = "inline-block";
-				// currentJob.style.height = "200px";
 				currentJob.style.width = elementsSides.toString() + "px";
-				// currentJob.style.marginTop = "0px"
-				// currentJob.style.marginBottom = "00px";
 				currentJob.style.marginLeft = elementsSides.toString() + "px";
 				currentJob.style.marginRight = elementsSides.toString() + "px";
 				currentJob.style.background = jobs[i].name;
-				// currentJob.innerHTML = jobs[i].word;
-				// currentJob.style.fontSize = "40px";
-				// currentJob.color = 'white';
 	   			currentJobCell.appendChild(currentJob);
 	   			var currentJobContent = document.createElement("div");
 	   			currentJobContent.className = "job-content";
-	   			// currentJobContent.style.height = "20vH";
-	   			// currentJobContent.style.width = "100%";
-	   			// currentJobContent.style.background = "white";
 	   			currentJob.appendChild(currentJobContent);
 	   			var currentJobTitle = document.createElement("div");
 	   			currentJobTitle.className = "job-content-title";
 	   			currentJobTitle.innerHTML = jobs[i].word;
-				// currentJobContent.style.fontSize = "40px";
-				// currentJobContent.color = 'black';
 	   			currentJobContent.appendChild(currentJobTitle);
 	   			stop+=1;
 	   		};
