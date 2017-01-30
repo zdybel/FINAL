@@ -56,52 +56,56 @@ var margin = -100;
 	//add event listener so when window changes, viewportWidth variable also changes.
 	window.addEventListener("resize", changeViewportWidth);
 
-	//add event listener so when scroll occurs, animations occur
-	window.addEventListener("scroll", animateJobs);
+	// //add event listener so when scroll occurs, animations occur
+	// window.addEventListener("scroll", animateJobs);
 
-	function animateJobs(){
-		// for(var i=0; i<jobs.length; i++){
-			var twoColumns = columnPx*2;
-			var eightColumns = columnPx*8;
-			var marginTop = document.getElementsByClassName("job-content-title")[0].clientHeight;
-			var documentTop = document.documentElement.clientHeight;
-			console.log(documentTop + "      document top");
-			console.log(marginTop);
-			console.log(thismargin + "  thismargin");
-			if(window.scrollX > twoColumns && window.scrollX < eightColumns){
-				if(margin >= -100 && margin  < 20){
-					document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
-				thismargin = thismargin + 5;
-				}
-				if(margin >= 20 && margin < 690){
-					document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
-					thismargin = thismargin - 5;
-				}
-				// if(thismargin <){}
-				// document.getElementsByClassName("job-content-title")[0].style.marginTop = 2px; 
-				// console.log(thismargin + " client height");
-				// var height = document.getElementsByClassName("job-content-title")[0].clientHeight;
+	// function animateJobs(){
+	// 	// for(var i=0; i<jobs.length; i++){
+	// 		// var twoColumns = columnPx*2;
+	// 		// var eightColumns = columnPx*8;
+	// 		// var twelveColumns = columnPx*12;
+	// 		// var marginTop = document.getElementsByClassName("job-content-title")[0].clientHeight;
+	// 		// var documentTop = document.documentElement.clientHeight;
+	// 		// console.log(documentTop + "      document top");
+	// 		// console.log(marginTop);
+	// 		// console.log(thismargin + "  thismargin");
+	// 		// if(window.scrollX > twoColumns && window.scrollX < eightColumns){
+	// 		// 	// if(margin >= -100 && margin  < 20){
+	// 		// 		document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
+	// 		// 		thismargin = thismargin + 5;
+	// 		// 	// }
+	// 		// 	// if(margin >= 20 && margin < 690){
+	// 		// 		document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
+	// 		// 		thismargin = thismargin - 5;
+	// 			// }
+	// 			// if(thismargin <){}
+	// 			// document.getElementsByClassName("job-content-title")[0].style.marginTop = 2px; 
+	// 			// console.log(thismargin + " client height");
+	// 			// var height = document.getElementsByClassName("job-content-title")[0].clientHeight;
 				
-				// if(thismargin >= 20 && )
-				margin = margin + 5;
-				console.log(document.getElementsByClassName("job")[0].offsetLeft + "offsetleftjob");
-				console.log("margin    " + margin);
-			}
-		// };
-		// var viewportWidth = document.documentElement.clientWidth;
-		// document.getElementsByClassName("storyboard-container")[0].style.background = red;
-		// if(document.documentElement.scrollLeft >1300){
-		// if (viewportWidth > 1300){
-			// console.log("scroll" + document.documentElement.scrollLeft);
-		// if(window.scrollX >= document.getElementsByClassName("job-cell")){
+	// 			// if(thismargin >= 20 && )
+	// 			margin = margin + 5;
+	// 			// console.log(document.getElementsByClassName("job")[0].offsetLeft + "offsetleftjob");
+	// 			// console.log("margin    " + margin);
+	// 		}
+	// 		if(window.scrollX >= eightColumns && window.scrollX < columnPx*12){
 
-		// }
-			// console.log("scrollx" + window.scrollX);
-			// console.log("last card" + document.getElementsByClassName("job-cell")[0].offsetLeft);
-			// console.log("last cardMiddle" + document.getElementsByClassName("job")[0].offsetLeft);
+	// 		}
+	// 	// };
+	// 	// var viewportWidth = document.documentElement.clientWidth;
+	// 	// document.getElementsByClassName("storyboard-container")[0].style.background = red;
+	// 	// if(document.documentElement.scrollLeft >1300){
+	// 	// if (viewportWidth > 1300){
+	// 		// console.log("scroll" + document.documentElement.scrollLeft);
+	// 	// if(window.scrollX >= document.getElementsByClassName("job-cell")){
 
-		// }
-	}; 
+	// 	// }
+	// 		// console.log("scrollx" + window.scrollX);
+	// 		// console.log("last card" + document.getElementsByClassName("job-cell")[0].offsetLeft);
+	// 		// console.log("last cardMiddle" + document.getElementsByClassName("job")[0].offsetLeft);
+
+	// 	// }
+	// }; 
 
 	//change viewportWidth variable to current viewport width and set elements widths accordingly.
 	function changeViewportWidth(){
@@ -190,14 +194,16 @@ var margin = -100;
 		        listener(e);
 		        if (e.delta > 0){      
 		        	window.scrollBy(-25, 0);
+		        	scrollBackward();
 		        }
 		        if (e.delta < 0){
 		     		window.scrollBy(25, 0);
-		        };
-		        console.log(e.delta);
-		    };
+		     		console.log(e.delta);
+		     		scrollForward();
+				}
+			}
 		} else {
-		    bodyContainer.addEventListener('DOMMouseScroll', listener)
+		    bodyContainer.addEventListener('DOMMouseScroll', listener);
 		};
 	};
 
@@ -206,6 +212,45 @@ var margin = -100;
 		window.addEventListener("scroll", function(){
 			document.getElementsByClassName("body-container")[0].translate(25, 0);
 		});
+	};
+	function scrollForward(){
+		var twoColumns = parts * 2;
+		var eightColumns = parts*8;
+		var twelveColumns = parts*12;
+		if(window.scrollX > parts && window.scrollX < eightColumns){
+			document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
+				thismargin = thismargin + 5;
+		}
+		console.log("scrolling forward");
+	};
+	function scrollBackward(){
+		var twoColumns = parts * 2;
+		var eightColumns = parts*8;
+		var twelveColumns = parts*12;
+		console.log("scrolling backward");
+		if(window.scrollX > parts && window.scrollX < eightColumns){
+			document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
+			thismargin = thismargin - 5;
+		}
+	};
+	function animate(){
+		var twoColumns = columnPx*2;
+		var eightColumns = columnPx*8;
+		var twelveColumns = columnPx*12;
+		var marginTop = document.getElementsByClassName("job-content-title")[0].clientHeight;
+		var documentTop = document.documentElement.clientHeight;
+		// console.log(documentTop + "      document top");
+		// console.log(marginTop);
+		// console.log(thismargin + "  thismargin");
+		if(window.scrollX > twoColumns && window.scrollX < eightColumns){
+			// if(margin >= -100 && margin  < 20){
+			document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
+			thismargin = thismargin + 5;
+			// }
+			// if(margin >= 20 && margin < 690){
+			document.getElementsByClassName("job-content-title")[0].style.marginTop = thismargin.toString() + "px";
+			thismargin = thismargin - 5;
+		};
 	};
 
 };
