@@ -158,6 +158,10 @@ window.onload = function() {
 		     		window.scrollBy(25, 0);
 		     		// console.log(e.delta);
 		     		scrollForward();
+		     		console.log(document.getElementsByClassName("job-cell")[0].offsetLeft);
+		     		console.log(document.getElementsByClassName("job-cell")[1].offsetLeft);
+		     		console.log(document.getElementsByClassName("job-cell")[2].offsetLeft);
+		     		console.log(document.getElementsByClassName("job-cell")[3].offsetLeft);
 				}
 			}
 		} else {
