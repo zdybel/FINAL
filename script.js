@@ -80,11 +80,12 @@ window.onload = function() {
 	//set array of job variables to be looped through later. 
 	var jobs = [red, orange, yellow, green, blue, indigo, purple, black, grey, pink];
 
+	var jobsLength = jobs.length;
 
 	//set variables for job cards based on width of bar-container div so that cards will always be spaced porportionately.
-	var storyboardWidth = viewportWidth*jobs.length;
+	var storyboardWidth = viewportWidth*jobsLength;
 	var width = storyboardWidth;
-	var totalColumns = jobs.length * 12;
+	var totalColumns = jobsLength * 12;
 	var columnPx = width/totalColumns
 	var twoColumns = columnPx * 2;
 	var fourColumns = columnPx * 4;
@@ -96,20 +97,20 @@ window.onload = function() {
 	makeJobCards();
 
 	//call changeViewportWidth
-	changeViewportWidth();
+	changeViewportWidth(jobsLength);
 
 	//add event listener so when window changes, viewportWidth variable also changes.
-	window.addEventListener("resize", changeViewportWidth);
+	window.addEventListener("resize", changeViewportWidth(jobsLength));
 
 	window.addEventListener("mousewheel", sideScroll);
 
 	//change viewportWidth variable to current viewport width and set elements widths accordingly.
-	function changeViewportWidth(){
+	function changeViewportWidth(jobsLength){
 		//reset variables according to new viewport width
 		viewportWidth = document.documentElement.clientWidth;
-		storyboardWidth = viewportWidth*jobs.length;
+		storyboardWidth = viewportWidth*jobsLength;
 		width = storyboardWidth;
-		totalColumns = jobs.length * 12;
+		totalColumns = jobsLength * 12;
 		columnPx = width/totalColumns
 		twoColumns = columnPx * 2;
 		fourColumns = columnPx * 4;
@@ -118,7 +119,7 @@ window.onload = function() {
 		//reset size of all the things according to new variables
 		bodyContainer.style.width = storyboardWidth.toString() + "px";
 		storyboardContainer.style.width = storyboardWidth.toString() + "px";
-		for (var i=0; i<jobs.length; i++){
+		for (var i=0; i<jobsLength; i++){
 			document.getElementsByClassName("job-cell")[i].style.width = viewportWidth.toString() + "px";
 			var currentJob = document.getElementsByClassName("job")[i];
 			currentJob.style.width = fourColumns.toString() + "px";
@@ -138,8 +139,8 @@ window.onload = function() {
 	function makeJobCards(){
 		//set varaible that is used in if statement in makeJobCards so that the for loop only runs as many times as there are jobs.
 		var stop = 0;
-		if (stop <= jobs.length){
-	  		for (var i=0; i<jobs.length; i++){
+		if (stop <= jobsLength){
+	  		for (var i=0; i<jobsLength; i++){
 	  			var jobCell = document.createElement("div");
 	  			jobCell.className = "job-cell";
 	  			jobCell.style.width = viewportWidth.toString() + "px";
@@ -217,33 +218,32 @@ window.onload = function() {
 	// var thismargin = 0;
 	// function scrollForward(){
 	// 	console.log("pppp");
-	
 
 	// switch(true) {
 	// 	case(veiw)
 	// }		
-	// 	switch (true) {
- //    case (element > params && element < params):
- //        day = "Sunday";
- //        some code
- //        break;
- //    case 1:
- //        day = "Monday";
- //        break;
- //    case 2:
- //        day = "Tuesday";
- //        break;
- //    case 3:
- //        day = "Wednesday";
- //        break;
- //    case 4:
- //        day = "Thursday";
- //        break;
- //    case 5:
- //        day = "Friday";
- //        break;
- //    case  6:
- //        day = "Saturday";
+// 		switch (true) {
+//     case (window.scrollX > thirdWidth && window.scrollX <= twoThirdWidth):
+//         day = "Sunday";
+//         some code
+//         break;
+//     case (window.scrollX > twoThirdWidth && window.scrollX <= ((2*viewportWidth)+twoThirdWidth) :
+//         day = "Monday";
+//         break;
+//     case (window.scrollX > ((2*viewportWidth)+twoThirdWidth) && window.scrollX <= ((3*viewportWidth)+twoThirdWidth):
+//         day = "Tuesday";
+//         break;
+//     case 3:
+//         day = "Wednesday";
+//         break;
+//     case 4:
+//         day = "Thursday";
+//         break;
+//     case 5:
+//         day = "Friday";
+//         break;
+//     case  6:
+//         day = "Saturday";
 // }
 	// 	for(var i=1; i<jobs.length; i++){
 	// 		//set job and element
