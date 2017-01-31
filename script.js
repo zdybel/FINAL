@@ -269,95 +269,95 @@ window.onload = function() {
 	
 	function scrollBackward(){
 	};
-	
+
 	function scrollForward(){
 		if(window.scrollX > thirdWidth && window.scrollX < twoThirdWidth){
 			var element = document.getElementsByClassName("job-content-title")[0];
 			var currentJob = jobs[0];
 			while(currentJob.titleMarginTop < fifthHeight){
 	    		element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += .5;
+	    		currentJob.titleMarginTop += 1;
 	    		console.log("0");
 	    	};
 		}
-		if(window.scrollX >twoThirdWidth && window.scrollX < (2*twoThirdWidth)){
+		if(window.scrollX >twoThirdWidth && window.scrollX < ((2*viewportWidth)+twoThirdWidth)){
 			var element = document.getElementsByClassName("job-content-title")[1];
 			var currentJob = jobs[1];
 			while(currentJob.titleMarginTop < fifthHeight){
 	    		element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += .5;
+	    		currentJob.titleMarginTop += 1;
 	    		console.log("1");
 	    	};	
 		}
-		if(window.scrollX >(2*twoThirdWidth) && window.scrollX < (3*twoThirdWidth)){
+		if(window.scrollX >(viewportWidth+twoThirdWidth) && window.scrollX < ((3*viewportWidth)+twoThirdWidth)){
 			var element = document.getElementsByClassName("job-content-title")[2];
 			var currentJob = jobs[2];
 			while(currentJob.titleMarginTop < fifthHeight){
 	    		element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += .5;
+	    		currentJob.titleMarginTop += 1;
 	    		console.log("2");
 	    	};	
 		}
-		if(window.scrollX >(3*twoThirdWidth) && window.scrollX < (4*twoThirdWidth)){
+		if(window.scrollX >((2*viewportWidth)+twoThirdWidth) && window.scrollX < ((4*viewportWidth)+twoThirdWidth)){
 			var element = document.getElementsByClassName("job-content-title")[3];
 			var currentJob = jobs[3];
 			while(currentJob.titleMarginTop < fifthHeight){
 	    		element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += .5;
+	    		currentJob.titleMarginTop += 1;
 	    		console.log("3");
 	    	};	
 		}
-		if(window.scrollX >(4*twoThirdWidth) && window.scrollX < (5*twoThirdWidth)){
+		if(window.scrollX >((3*viewportWidth)+twoThirdWidth) && window.scrollX < ((5*viewportWidth)+twoThirdWidth)){
 			var element = document.getElementsByClassName("job-content-title")[4];
 			var currentJob = jobs[4];
 			while(currentJob.titleMarginTop < fifthHeight){
 	    		element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += .5;
+	    		currentJob.titleMarginTop += 1;
 	    		console.log("4");
 	    	};	
 		}
-		if(window.scrollX >(5*twoThirdWidth) && window.scrollX < (6*twoThirdWidth)){
+		if(window.scrollX >((4*viewportWidth)+twoThirdWidth) && window.scrollX < ((6*viewportWidth)+twoThirdWidth)){
 			var element = document.getElementsByClassName("job-content-title")[5];
 			var currentJob = jobs[5];
 			while(currentJob.titleMarginTop < fifthHeight){
 	    		element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += .5;
+	    		currentJob.titleMarginTop += 1;
 	    		console.log("5");
 	    	};	
 		}
-		if(window.scrollX >(6*twoThirdWidth) && window.scrollX < (7*twoThirdWidth)){
+		if(window.scrollX >((5*viewportWidth)+twoThirdWidth) && window.scrollX < ((7*viewportWidth)+twoThirdWidth)){
 			var element = document.getElementsByClassName("job-content-title")[6];
 			var currentJob = jobs[6];
 			while(currentJob.titleMarginTop < fifthHeight){
 	    		element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += .5;
+	    		currentJob.titleMarginTop += 1;
 	    		console.log("6");
 	    	};	
 		}
-		if(window.scrollX >(7*twoThirdWidth) && window.scrollX < (8*twoThirdWidth)){
+		if(window.scrollX >((6*viewportWidth)+twoThirdWidth) && window.scrollX < ((8*viewportWidth)+twoThirdWidth)){
 			var element = document.getElementsByClassName("job-content-title")[7];
 			var currentJob = jobs[7];
 			while(currentJob.titleMarginTop < fifthHeight){
 	    		element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += .5;
+	    		currentJob.titleMarginTop += 1;
 	    		console.log("7");
 	    	};	
 		}
-		if(window.scrollX >(8*twoThirdWidth) && window.scrollX < (9*twoThirdWidth)){
+		if(window.scrollX >((7*viewportWidth)+twoThirdWidth) && window.scrollX < ((9*viewportWidth)+twoThirdWidth)){
 			var element = document.getElementsByClassName("job-content-title")[8];
 			var currentJob = jobs[8];
 			while(currentJob.titleMarginTop < fifthHeight){
 	    		element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += .5;
+	    		currentJob.titleMarginTop += 1;
 	    		console.log("8");
 	    	};	
 		}
-		if(window.scrollX >(9*twoThirdWidth) && window.scrollX < (10*twoThirdWidth)){
+		if(window.scrollX >((8*viewportWidth)+twoThirdWidth) && window.scrollX < ((10*viewportWidth)+twoThirdWidth)){
 			var element = document.getElementsByClassName("job-content-title")[9];
 			var currentJob = jobs[9];
 			while(currentJob.titleMarginTop < fifthHeight){
 	    		element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += .5;
+	    		currentJob.titleMarginTop += 1;
 	    		console.log("9");
 	    	};	
 		}
