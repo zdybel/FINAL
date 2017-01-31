@@ -1,41 +1,46 @@
 window.onload = function() {
  
  	//object constructor for jobs. 
-	function Job(id, name, word){
+	function Job(id, name, word, titleMarginTop){
     	this.id = id;
 		this.name = name;
 		this.word = word;
+		this.titleMarginTop = titleMarginTop;
  	// this.checkCode = function(){
  	// if(expir isBeforeOrEqualTo todaysDate){
  	// return true
  	// }
 	};
 
-	//set job variables.
-	var red = new Job('1','red', 'Are');
-	var orange = new Job('2', 'orange', 'you');
-	var yellow = new Job('3','yellow', 'diggin');
-	var green = new Job('4', 'green', 'this');
-	var blue = new Job('5', 'blue', 'whole');
-	var indigo = new Job('6', 'indigo', 'javascript');
-	var purple = new Job('7', 'purple', 'nonesense?');
-	var black = new Job('8', 'black', 'Is');
-	var grey = new Job('9', 'grey', 'it');
-	var pink = new Job('10', 'pink', 'fun?');
-
-	//set array of job variables to be looped through later. 
-	var jobs = [red, orange, yellow, green, blue, indigo, purple, black, grey, pink];
-
 	//set variable for veiwport width.
 	var viewportWidth = document.documentElement.clientWidth;
-	var storyboardWidth = viewportWidth*jobs.length;
 	var viewportHeight = document.documentElement.clientHeight;
+	var fifthHeight = viewportHeight * .2;
+	var fifthHeightNeg = viewportHeight * -.2;
+	var thirdWidth = viewportWidth * (1/3);
 
 	//set variables for DOM elements for readability. 
 	var bodyContainer = document.getElementsByClassName("body-container")[0];
 	var storyboardContainer = document.getElementsByClassName("storyboard-container")[0];
 
+	//set job variables.
+	var red = new Job('1','red', 'Are', fifthHeight);
+	var orange = new Job('2', 'orange', 'you', fifthHeightNeg);
+	var yellow = new Job('3','yellow', 'diggin', fifthHeightNeg);
+	var green = new Job('4', 'green', 'this', fifthHeightNeg);
+	var blue = new Job('5', 'blue', 'whole', fifthHeightNeg);
+	var indigo = new Job('6', 'indigo', 'javascript', fifthHeightNeg);
+	var purple = new Job('7', 'purple', 'nonesense?', fifthHeightNeg);
+	var black = new Job('8', 'black', 'Is', fifthHeightNeg);
+	var grey = new Job('9', 'grey', 'it', fifthHeightNeg);
+	var pink = new Job('10', 'pink', 'fun?', fifthHeightNeg);
+
+	//set array of job variables to be looped through later. 
+	var jobs = [red, orange, yellow, green, blue, indigo, purple, black, grey, pink];
+
+
 	//set variables for job cards based on width of bar-container div so that cards will always be spaced porportionately.
+	var storyboardWidth = viewportWidth*jobs.length;
 	var width = storyboardWidth;
 	var totalColumns = jobs.length * 12;
 	var columnPx = width/totalColumns
@@ -43,12 +48,7 @@ window.onload = function() {
 	var fourColumns = columnPx * 4;
 	var eightColumns = columnPx * 8;
 	var twelveColumns = columnPx * 12;
-	var fifthHeight = viewportHeight * .2;
-	var fifthHeightNeg = viewportHeight * -.2;
-	var thirdWidth = viewportWidth * (1/3);
 
-	// //set varaible that is used in if statement in makeJobCards so that the for loop only runs as many times as there are jobs.
-	// var stop = 0;
 
 	//call makeJobCards.
 	makeJobCards();
@@ -115,7 +115,6 @@ window.onload = function() {
 	   			currentJobTitle.className = "job-content-title";
 	   			currentJobTitle.innerHTML = jobs[i].word;
 	   			currentJobTitle.style.height = fifthHeight.toString() + "px";
-	   			currentJobTitle.style.marginTop = fifthHeightNeg.toString() + "px";
 	   			currentJobContent.appendChild(currentJobTitle);
 	   			stop+=1;
 	   		};
@@ -171,42 +170,53 @@ window.onload = function() {
 			document.getElementsByClassName("body-container")[0].translate(25, 0);
 		});
 	};
-
-	var thismargin = -200;
+	// var thismargin = 0;
 	function scrollForward(){
-		for(var i=0; i<jobs.length; i++){
+		console.log("pppp");
+		for(var i=1; i<jobs.length; i++){
+			//set job and element
+			var currentJob = jobs[i]
 			element = document.getElementsByClassName('job-content-title')[i];
-    		marginTopString = window.getComputedStyle(element)['marginTop'];
-    		marginTop = marginTopString.replace("px", "");
-    		marginTopInt = parseInt(marginTop);
-    		var margin = marginTopInt + Math.abs(thismargin);
-    		var widths = (viewportWidth * (i-1)) + 300;
+    		//set widths that the element will move at
+    		var widths = viewportWidth * (i-1);
+    		console.log(widths);
     		var widthsAndAThird = widths + thirdWidth;
-    		if(window.scrollX >= widthsAndAThird){
-    			if(marginTopInt <= 200){
-					document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
-					thismargin = thismargin + .05;
-					console.log("window scrollx     " +   window.scrollX);
-					console.log(i);
-				};
-			};
+    		var currentWidths = (viewportWidth * i) -300;
+    		var currentWidthsAndAThird = currentWidths + thirdWidth;
+    		if(window.scrollX >= widthsAndAThird && window.scrollX <= widthsAndAThird){
+    			while(currentJob.titleMarginTop >= -200){
+    				element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
+    				currentJob.titleMarginTop -= 5;
+    				console.log("its happening tow  " + currentJob.titleMarginTop.toString())
+    			};
+    		}
+    		if(window.scrollX < currentWidths && window.scrollX < currentWidthsAndAThird){
+    			while(currentJob.titleMarginTop < fifthHeight){
+    				element.style.marginTop = currentJob.titleMarginTop.toString() + "px";
+    				currentJob.titleMarginTop += 5;
+    				// console.log("one");
+    			};
+    		};
 		};
 	};
+
 	
 	function scrollBackward(){
-		for(var i=0; i<jobs.length; i++){
-			element = document.getElementsByClassName('job-content-title')[i];
-    		marginTopString = window.getComputedStyle(element)['marginTop'];
-    		marginTop = marginTopString.replace("px", "");
-    		marginTopInt = parseInt(marginTop);
-    		var margin = marginTopInt - Math.abs(thismargin);
-    		if(marginTopInt >= -100){
-				if(window.scrollX > columnPx && window.scrollX < eightColumns){
-					document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
-					thismargin = thismargin + .05;
-				};
-			};
-		};
+		// for(var i=0; i<jobs.length; i++){
+		// 	element = document.getElementsByClassName('job-content-title')[i];
+  //   		marginTopString = window.getComputedStyle(element)['marginTop'];
+  //   		marginTop = marginTopString.replace("px", "");
+  //   		marginTopInt = parseInt(marginTop);
+  //   		var margin = marginTopInt - Math.abs(thismargin);
+  //   		var widths = (viewportWidth * (i-1)) + 300;
+  //   		var widthsAndAThird = widths + thirdWidth;
+   //  		if(window.scrollX >= widthsAndAThird){
+   //  			if(marginTopInt >= -100){
+			// 		document.getElementsByClassName("job-content-title")[i].style.marginTop = margin.toString() + "px";
+			// 		thismargin = thismargin + .05;
+			// 	};
+			// };
+		// };
 	};
 };
 
