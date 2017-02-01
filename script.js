@@ -75,6 +75,7 @@ window.onload = function() {
 		storyboardContainer.style.width = storyboardWidth.toString() + "px";
 		for (var i=0; i<jobs.length; i++){
 			document.getElementsByClassName("job-cell")[i].style.width = viewportWidth.toString() + "px";
+			document.getElementsByClassName("job")[i].style.width = fourColumns.toString() + "px";
 			var currentJob = document.getElementsByClassName("job")[i];
 			currentJob.style.width = fourColumns.toString() + "px";
 			currentJob.style.marginLeft = fourColumns.toString() + "px";
