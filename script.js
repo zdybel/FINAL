@@ -231,358 +231,82 @@ window.onload = function() {
 	// switch(true) {
 	// 	case(veiw)
 	// }
-	var oneAndOneThirdWidth = viewportWidth + thirdWidth
-	var oneAndTwoThirdWidth = viewportWidth + twoThirdWidth;
-	var twoWidth = viewportWidth * 2;
-	var twoAndOneThirdWidth = twoWidth + thirdWidth;
-	var twoAndTwoThirdWidth = twoWidth + twoThirdWidth;
-	var threeWidth = viewportWidth * 3;
-	var threeAndOneThirdWidth = threeWidth + thirdWidth;
-	var threeAndTwoThirdWidth = threeWidth + twoThirdWidth;
-	var fourWidth = viewportWidth * 4;
-	var fourAndOneThirdWidth = fourWidth + thirdWidth;
-	var fourAndTwoThirdWidth = fourWidth + twoThirdWidth;
-	var fiveWidth = viewportWidth * 5;
-	var fiveAndOneThirdWidth = fiveWidth + thirdWidth;
-	var fiveAndTwoThirdWidth = fiveWidth + twoThirdWidth;
-	var sixWidth = viewportWidth * 6;
-	var sixAndOneThirdWidth = sixWidth + thirdWidth;
-	var sixAndTwoThirdWidth = sixWidth + twoThirdWidth;
-	var sevenWidth = viewportWidth * 7;
-	var sevenAndOneThirdWidth = sevenWidth + thirdWidth;
-	var sevenAndTwoThirdWidth = sevenWidth + twoThirdWidth;
-	var eightWidth = viewportWidth * 8;
-	var eightAndOneThirdWidth = eightWidth + thirdWidth;
-	var eightAndTwoThirdWidth = eightWidth + twoThirdWidth;
-	var nineWidth = viewportWidth * 9;
-	var nineAndOneThirdWidth = nineWidth + thirdWidth;
-	var nineAndTwoThirdWidth = nineWidth + twoThirdWidth;
+	// var oneAndOneThirdWidth = viewportWidth + thirdWidth
+	// var oneAndTwoThirdWidth = viewportWidth + twoThirdWidth;
+	// var twoWidth = viewportWidth * 2;
+	// var twoAndOneThirdWidth = twoWidth + thirdWidth;
+	// var twoAndTwoThirdWidth = twoWidth + twoThirdWidth;
+	// var threeWidth = viewportWidth * 3;
+	// var threeAndOneThirdWidth = threeWidth + thirdWidth;
+	// var threeAndTwoThirdWidth = threeWidth + twoThirdWidth;
+	// var fourWidth = viewportWidth * 4;
+	// var fourAndOneThirdWidth = fourWidth + thirdWidth;
+	// var fourAndTwoThirdWidth = fourWidth + twoThirdWidth;
+	// var fiveWidth = viewportWidth * 5;
+	// var fiveAndOneThirdWidth = fiveWidth + thirdWidth;
+	// var fiveAndTwoThirdWidth = fiveWidth + twoThirdWidth;
+	// var sixWidth = viewportWidth * 6;
+	// var sixAndOneThirdWidth = sixWidth + thirdWidth;
+	// var sixAndTwoThirdWidth = sixWidth + twoThirdWidth;
+	// var sevenWidth = viewportWidth * 7;
+	// var sevenAndOneThirdWidth = sevenWidth + thirdWidth;
+	// var sevenAndTwoThirdWidth = sevenWidth + twoThirdWidth;
+	// var eightWidth = viewportWidth * 8;
+	// var eightAndOneThirdWidth = eightWidth + thirdWidth;
+	// var eightAndTwoThirdWidth = eightWidth + twoThirdWidth;
+	// var nineWidth = viewportWidth * 9;
+	// var nineAndOneThirdWidth = nineWidth + thirdWidth;
+	// var nineAndTwoThirdWidth = nineWidth + twoThirdWidth;
 
-	function scrollForward(){		
+	function scrollForward(){
+		for(var i=0; i<jobsLength; i++){		
 			switch (true) {
-	  	case (window.scrollX > thirdWidth && window.scrollX <= twoThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[0].style;
-	  		var currentJob = jobs[0];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("0 up");
-	  		};
-	  		break;	
-	    case (window.scrollX > twoThirdWidth && window.scrollX <= viewportWidth):
-	       var element = document.getElementsByClassName("job-content-title")[1].style;
-			var currentJob = jobs[1];
-			console.log("thisishappening");
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("1 down");
-	    	};	
-	        break;
-	    case (window.scrollX > oneAndOneThirdWidth && window.scrollX < oneAndTwoThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[1].style;
-	  		var currentJob = jobs[1];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("1 up");
-	  		};
-	  		break;
-	    case (window.scrollX > oneAndTwoThirdWidth && window.scrollX <= twoWidth):
-	      var element = document.getElementsByClassName("job-content-title")[2].style;
-			var currentJob = jobs[2];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("2 down");
-	    	};	
-	        break;
-	    case (window.scrollX > twoAndOneThirdWidth && window.scrollX < twoAndTwoThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[2].style;
-	  		var currentJob = jobs[2];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("2 up");
-	  		};
-	  		break;
-	    case (window.scrollX > twoAndTwoThirdWidth && window.scrollX <= threeWidth):
-	        var element = document.getElementsByClassName("job-content-title")[3].style;
-			var currentJob = jobs[3];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("3 down");
-	    	};	
-	        break;
-		case(window.scrollX > threeAndOneThirdWidth && window.scrollX < threeAndTwoThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[3].style;
-	  		var currentJob = jobs[3];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("3 up");
-	  		};
-	  		break;
-	    case (window.scrollX > threeAndTwoThirdWidth && window.scrollX <= fourWidth):
-	        	var element = document.getElementsByClassName("job-content-title")[4].style;
-			var currentJob = jobs[4];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("4 down");
-	    	};
-	        break;
-	    case(window.scrollX > fourAndOneThirdWidth && window.scrollX < fourAndTwoThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[4].style;
-	  		var currentJob = jobs[4];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("4 up");
-	  		};
-	  		break;
-	    case (window.scrollX > fourAndTwoThirdWidth && window.scrollX <= fiveWidth):
-	        var element = document.getElementsByClassName("job-content-title")[5].style;
-			var currentJob = jobs[5];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("5 down");
-	    	};	
-	        break;
-	    case(window.scrollX > fiveAndOneThirdWidth && window.scrollX < fiveAndTwoThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[5].style;
-	  		var currentJob = jobs[5];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("5 up");
-	  		};
-	  		break;
-	    case  (window.scrollX > fiveAndTwoThirdWidth && window.scrollX <= sixWidth):
-	        var element = document.getElementsByClassName("job-content-title")[6].style;
-			var currentJob = jobs[6];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("6 down");
-	    	};	
-	    	break;
-	  	case(window.scrollX > sixAndOneThirdWidth && window.scrollX < sixAndTwoThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[6].style;
-	  		var currentJob = jobs[6];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("6 up");
-	  		};
-	  		break;
-		case  (window.scrollX > sixAndTwoThirdWidth && window.scrollX <= sevenWidth):
-			var element = document.getElementsByClassName("job-content-title")[7].style;
-			var currentJob = jobs[7];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("7 down");
-	    	};	
-			break;
-		case (window.scrollX > sevenAndOneThirdWidth && window.scrollX < sevenAndTwoThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[7].style;
-	  		var currentJob = jobs[7];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("7 up");
-	  		};
-	  		break;
-		case (window.scrollX > sevenAndTwoThirdWidth && window.scrollX <= eightWidth):
-			var element = document.getElementsByClassName("job-content-title")[8].style;
-			var currentJob = jobs[8];
-			console.log("this is happening");
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("8 down");
-	    	};
-			break;
-		case (window.scrollX > eightAndOneThirdWidth && window.scrollX < eightAndTwoThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[8].style;
-	  		var currentJob = jobs[8];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("8 up");
-	  		};
-	  		break;
-		case  (window.scrollX > eightAndTwoThirdWidth && window.scrollX <= nineWidth):
-			var element = document.getElementsByClassName("job-content-title")[9].style;
-			var currentJob = jobs[9];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("9 down");
-	    	};
-	    	break;
-	    }
+				case(window.scrollX > (((i-1)*viewportWidth) + twoThirdWidth) && window.scrollX <= (i*viewportWidth)):
+					var element = document.getElementsByClassName("job-content-title")[i].style;
+					var currentJob = jobs[i];
+					while(currentJob.titleMarginTop < fifthHeight){
+						element.marginTop = currentJob.titleMarginTop.toString() + "px";
+						currentJob.titleMarginTop += 1;
+						console.log(i + " down");
+					};
+				break;
+				case(window.scrollX > ((i*viewportWidth) + thirdWidth) && window.scrollX < ((i*viewportWidth) + twoThirdWidth)):
+					var element = document.getElementsByClassName("job-content-title")[i].style;
+					var currentJob = jobs[i];
+					while(currentJob.titleMarginTop > fifthHeightNeg){
+						element.marginTop = currentJob.titleMarginTop.toString() + "px";
+						currentJob.titleMarginTop -= 1;
+						console.log(i + " up");
+					};
+				break;
+			}
+		}	 
 	};
 
 	
 	function scrollBackward(){
-					switch (true) {
-	  	case (window.scrollX < eightAndTwoThirdWidth && window.scrollX > eightAndOneThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[9].style;
-	  		var currentJob = jobs[9];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("9 up b");
-	  		};
-	  		break;
-		case (window.scrollX < eightAndOneThirdWidth && window.scrollX >= eightWidth):
-			var element = document.getElementsByClassName("job-content-title")[8].style;
-			var currentJob = jobs[8];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("8 down b");
-	    	};
-			break;
-		case (window.scrollX < sevenAndTwoThirdWidth && window.scrollX > sevenAndOneThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[8].style;
-	  		var currentJob = jobs[8];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("8 up b");
-	  		};
-	  		break;
-	  	case  (window.scrollX < sevenAndOneThirdWidth && window.scrollX >= sevenWidth):
-			var element = document.getElementsByClassName("job-content-title")[7].style;
-			var currentJob = jobs[7];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("7 down b");
-	    	};	
-			break;
-		case (window.scrollX < sixAndTwoThirdWidth && window.scrollX > sixAndOneThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[7].style;
-	  		var currentJob = jobs[7];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("7 up b");
-	  		};
-	  		break;
-	  	case  (window.scrollX < sixAndOneThirdWidth && window.scrollX >= sixWidth):
-	        var element = document.getElementsByClassName("job-content-title")[6].style;
-			var currentJob = jobs[6];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("6 down b");
-	    	};	
-	    	break;
-	    case(window.scrollX < fiveAndTwoThirdWidth && window.scrollX > fiveAndOneThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[6].style;
-	  		var currentJob = jobs[6];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("6 up b");
-	  		};
-	  		break;
-	  	case (window.scrollX < fiveAndOneThirdWidth && window.scrollX >= fiveWidth):
-	        var element = document.getElementsByClassName("job-content-title")[5].style;
-			var currentJob = jobs[5];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("5 down b");
-	    	};	
-	        break;
-	    case(window.scrollX < fourAndTwoThirdWidth && window.scrollX > fourAndOneThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[5].style;
-	  		var currentJob = jobs[5];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("5 up b");
-	  		};
-	  		break;
-	  	case (window.scrollX < fourAndOneThirdWidth && window.scrollX >= fourWidth):
-	        	var element = document.getElementsByClassName("job-content-title")[4].style;
-			var currentJob = jobs[4];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("4 down b");
-	    	};
-	        break;
-	    case(window.scrollX < threeAndTwoThirdWidth && window.scrollX > threeAndOneThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[4].style;
-	  		var currentJob = jobs[4];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("4 up b");
-	  		};
-	  		break;
-	  	case (window.scrollX < threeAndOneThirdWidth && window.scrollX >= threeWidth):
-	        var element = document.getElementsByClassName("job-content-title")[3].style;
-			var currentJob = jobs[3];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("3 down b");
-	    	};	
-	        break;
-	    case(window.scrollX < twoAndTwoThirdWidth && window.scrollX > twoAndOneThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[3].style;
-	  		var currentJob = jobs[3];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("3 up b");
-	  		};
-	  		break;
-	  	case (window.scrollX < twoAndOneThirdWidth && window.scrollX >= twoWidth):
-	        var element = document.getElementsByClassName("job-content-title")[2].style;
-			var currentJob = jobs[2];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("2 down b");
-	    	};	
-	        break;
-	    case (window.scrollX < oneAndTwoThirdWidth && window.scrollX > oneAndOneThirdWidth):
-	  		var element = document.getElementsByClassName("job-content-title")[2].style;
-	  		var currentJob = jobs[2];
-	  		while(currentJob.titleMarginTop > fifthHeightNeg){
-	  			element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	  			currentJob.titleMarginTop -= 1;
-	  			console.log("2 up b");
-	  		};
-	  		break;
-	  	case (window.scrollX < oneAndOneThirdWidth && window.scrollX >= viewportWidth):
-	        var element = document.getElementsByClassName("job-content-title")[1].style;
-			var currentJob = jobs[1];
-			while(currentJob.titleMarginTop < fifthHeight){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop += 1;
-	    		console.log("1 down b");
-	    	};	
-	        break;
-	    case (window.scrollX < twoThirdWidth && window.scrollX >= thirdWidth):
-	    	var element = document.getElementsByClassName("job-content-title")[1].style;
-	    	var currentJob = jobs[1];
-	    	while(currentJob.titleMarginTop > fifthHeightNeg){
-	    		element.marginTop = currentJob.titleMarginTop.toString() + "px";
-	    		currentJob.titleMarginTop -= 1;
-	    		console.log("1 down b");
-	    	};
-	    	break;
-	    	}
+		for(var i=0; i<jobsLength; i++){
+			switch (true) {
+				case(window.scrollX < ((i*viewportWidth) + thirdWidth) && window.scrollX >= (i*viewportWidth)):
+					var element = document.getElementsByClassName("job-content-title")[i].style;
+					var currentJob = jobs[i];
+					while(currentJob.titleMarginTop < fifthHeight){
+						element.marginTop = currentJob.titleMarginTop.toString() + "px";
+						currentJob.titleMarginTop += 1;
+						console.log(i + " down b");
+					};
+				break;
+				case(window.scrollX < (((i-1)*viewportWidth)+ twoThirdWidth) && window.scrollX > (((i-1)*viewportWidth) + thirdWidth)):
+					var element = document.getElementsByClassName("job-content-title")[i].style;
+					var currentJob = jobs[i];
+					while(currentJob.titleMarginTop > fifthHeightNeg){
+						element.marginTop = currentJob.titleMarginTop.toString() + "px";
+						currentJob.titleMarginTop -= 1;
+						console.log(i + " up b");
+					};
+				break;
+			}
+		}
 	};
+	    	
 };
