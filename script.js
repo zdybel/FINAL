@@ -99,17 +99,23 @@ window.onload = function() {
 	makeJobCards();
 
 	//call changeViewportWidth, passing in jobsLength as integer.
-	changeViewportWidth(jobsLength);
+	changeViewportWidth();
 
 	//add event listener so when window changes, viewportWidth variable also changes, passing in jobsLength as integer.
-	window.addEventListener("resize", changeViewportWidth(jobsLength));
+	window.addEventListener("resize", changeViewportWidth);
 
 	window.addEventListener("mousewheel", sideScroll);
 
 	//change viewportWidth variable to current viewport width and set elements widths accordingly, passing in jobsLength as integer.
-	function changeViewportWidth(jobsLength){
+	function changeViewportWidth(){
 		//reset variables according to new viewport width
 		viewportWidth = document.documentElement.clientWidth;
+		viewportHeight = document.documentElement.clientHeight;
+		fifthHeight = viewportHeight * .2;
+		fifthHeightNeg = viewportHeight * -.2;
+		thirdWidth = viewportWidth * (1/3);
+		twoThirdWidth = viewportWidth * (2/3);
+		jobsLength = jobs.length;
 		storyboardWidth = viewportWidth*jobsLength;
 		width = storyboardWidth;
 		totalColumns = jobsLength * 12;
@@ -123,6 +129,8 @@ window.onload = function() {
 		storyboardContainer.style.width = storyboardWidth.toString() + "px";
 		for (var i=0; i<jobsLength; i++){
 			document.getElementsByClassName("job-cell")[i].style.width = viewportWidth.toString() + "px";
+			document.getElementsByClassName("job")[i].style.width = fourColumns.toString() + "px";
+			// document.getElementsByClassName("job-content-title")[i].style.marginTop = jobs[i].titleMarginTop.toString() + "px";
 			var currentJob = document.getElementsByClassName("job")[i];
 			currentJob.style.width = fourColumns.toString() + "px";
 			currentJob.style.marginLeft = fourColumns.toString() + "px";
