@@ -52,13 +52,14 @@ body {
   position: absolute; }
 
 .job-content-title {
+  background-color: none;
+  padding: 5vH;
   width: 80%;
   display: block;
   margin: -20vH auto 0 auto;
   border: dotted grey 5px;
   font-size: 40px;
   text-align: center;
-  color: black;
-  background-color: white; }
+  color: black; }
 
 /*# sourceMappingURL=styles.css.map */

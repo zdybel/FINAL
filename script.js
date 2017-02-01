@@ -67,16 +67,16 @@ window.onload = function() {
 	var storyboardContainer = document.getElementsByClassName("storyboard-container")[0];
 
 	//set job variables.
-	var red = new Job('1','red', 'Are', fifthHeight);
-	var orange = new Job('2', 'orange', 'you', fifthHeightNeg);
-	var yellow = new Job('3','yellow', 'diggin', fifthHeightNeg);
-	var green = new Job('4', 'green', 'this', fifthHeightNeg);
-	var blue = new Job('5', 'blue', 'whole', fifthHeightNeg);
-	var indigo = new Job('6', 'indigo', 'javascript', fifthHeightNeg);
-	var purple = new Job('7', 'purple', 'nonesense?', fifthHeightNeg);
-	var black = new Job('8', 'black', 'Is', fifthHeightNeg);
-	var grey = new Job('9', 'grey', 'it', fifthHeightNeg);
-	var pink = new Job('10', 'pink', 'fun?', fifthHeightNeg);
+	var red = new Job('1','red', 'An Awesome Job', fifthHeight);
+	var orange = new Job('2', 'orange', 'Not As Awesome of A Job', fifthHeightNeg);
+	var yellow = new Job('3','yellow', 'This Job Was Difficult', fifthHeightNeg);
+	var green = new Job('4', 'green', 'I am Proud of this Job', fifthHeightNeg);
+	var blue = new Job('5', 'blue', 'Company Name', fifthHeightNeg);
+	var indigo = new Job('6', 'indigo', 'Schooling', fifthHeightNeg);
+	var purple = new Job('7', 'purple', 'Great Company', fifthHeightNeg);
+	var black = new Job('8', 'black', 'So-so Company', fifthHeightNeg);
+	var grey = new Job('9', 'grey', 'Atlanta Job', fifthHeightNeg);
+	var pink = new Job('10', 'pink', 'Last Job', fifthHeightNeg);
 
 	//set array of job variables to be looped through later. 
 	var jobs = [red, orange, yellow, green, blue, indigo, purple, black, grey, pink];
@@ -249,6 +249,10 @@ window.onload = function() {
 						console.log(i + " up");
 					};
 				break;
+				case(window.scrollX > (((i-1)*viewportWidth) + thirdWidth) && window.scrollX < (((i-1)*viewportWidth) + twoThirdWidth)):
+					var element = document.getElementsByClassName("job-cell")[i-1].style;
+					element.background = "pink";
+				break;
 			}
 		}	 
 	};
@@ -276,6 +280,11 @@ window.onload = function() {
 						currentJob.titleMarginTop -= 1;
 						console.log(i + " up b");
 					};
+				break;
+				case(window.scrollX > (i*viewportWidth) && window.scrollX < ((i*viewportWidth) + twoThirdWidth)):
+					console.log("happening");
+					var element = document.getElementsByClassName("job-cell")[i].style;
+					element.background = "white";
 				break;
 			}
 		}
