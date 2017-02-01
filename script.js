@@ -224,39 +224,6 @@ window.onload = function() {
 			document.getElementsByClassName("body-container")[0].translate(25, 0);
 		});
 	};
-	// var thismargin = 0;
-	// function scrollForward(){
-	// 	console.log("pppp");
-
-	// switch(true) {
-	// 	case(veiw)
-	// }
-	// var oneAndOneThirdWidth = viewportWidth + thirdWidth
-	// var oneAndTwoThirdWidth = viewportWidth + twoThirdWidth;
-	// var twoWidth = viewportWidth * 2;
-	// var twoAndOneThirdWidth = twoWidth + thirdWidth;
-	// var twoAndTwoThirdWidth = twoWidth + twoThirdWidth;
-	// var threeWidth = viewportWidth * 3;
-	// var threeAndOneThirdWidth = threeWidth + thirdWidth;
-	// var threeAndTwoThirdWidth = threeWidth + twoThirdWidth;
-	// var fourWidth = viewportWidth * 4;
-	// var fourAndOneThirdWidth = fourWidth + thirdWidth;
-	// var fourAndTwoThirdWidth = fourWidth + twoThirdWidth;
-	// var fiveWidth = viewportWidth * 5;
-	// var fiveAndOneThirdWidth = fiveWidth + thirdWidth;
-	// var fiveAndTwoThirdWidth = fiveWidth + twoThirdWidth;
-	// var sixWidth = viewportWidth * 6;
-	// var sixAndOneThirdWidth = sixWidth + thirdWidth;
-	// var sixAndTwoThirdWidth = sixWidth + twoThirdWidth;
-	// var sevenWidth = viewportWidth * 7;
-	// var sevenAndOneThirdWidth = sevenWidth + thirdWidth;
-	// var sevenAndTwoThirdWidth = sevenWidth + twoThirdWidth;
-	// var eightWidth = viewportWidth * 8;
-	// var eightAndOneThirdWidth = eightWidth + thirdWidth;
-	// var eightAndTwoThirdWidth = eightWidth + twoThirdWidth;
-	// var nineWidth = viewportWidth * 9;
-	// var nineAndOneThirdWidth = nineWidth + thirdWidth;
-	// var nineAndTwoThirdWidth = nineWidth + twoThirdWidth;
 
 	function scrollForward(){
 		for(var i=0; i<jobsLength; i++){		
