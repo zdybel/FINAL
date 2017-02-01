@@ -239,6 +239,10 @@ window.onload = function() {
 						console.log(i + " down");
 					};
 				break;
+				case(window.scrollX > ((i-1)*viewportWidth) && window.scrollX<(((i-1)*viewportWidth)+thirdWidth)):
+					var element = document.getElementsByClassName("job")[i-1].style;
+					element.background = "white";
+				break;
 				case(window.scrollX > ((i*viewportWidth) + thirdWidth) && window.scrollX < ((i*viewportWidth) + twoThirdWidth)):
 					var element = document.getElementsByClassName("job-content-title")[i].style;
 					var currentJob = jobs[i];
@@ -271,6 +275,11 @@ window.onload = function() {
 						console.log(i + " down b");
 					};
 				break;
+				case(window.scrollX < (i*viewportWidth) && window.scrollX > (((i-1)*viewportWidth)+twoThirdWidth)):
+					console.log("happening");
+					var element = document.getElementsByClassName("job")[i-1].style;
+					element.background = jobs[i-1].name;
+				break;
 				case(window.scrollX < (((i-1)*viewportWidth)+ twoThirdWidth) && window.scrollX > (((i-1)*viewportWidth) + thirdWidth)):
 					var element = document.getElementsByClassName("job-content-title")[i].style;
 					var currentJob = jobs[i];
@@ -282,7 +291,6 @@ window.onload = function() {
 					};
 				break;
 				case(window.scrollX > (i*viewportWidth) && window.scrollX < ((i*viewportWidth) + twoThirdWidth)):
-					console.log("happening");
 					var element = document.getElementsByClassName("job-cell")[i].style;
 					element.background = "white";
 				break;
