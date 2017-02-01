@@ -231,8 +231,10 @@ window.onload = function() {
 				case(window.scrollX > (((i-1)*viewportWidth) + twoThirdWidth) && window.scrollX <= (i*viewportWidth)):
 					var element = document.getElementsByClassName("job-content-title")[i].style;
 					var currentJob = jobs[i];
-					while(currentJob.titleMarginTop < fifthHeight){
+					while(currentJob.titleMarginTop < 0){
 						element.marginTop = currentJob.titleMarginTop.toString() + "px";
+						element.transition = "all .5s";
+						// transition: 1.5s, transform;
 						currentJob.titleMarginTop += 1;
 						console.log(i + " down");
 					};
@@ -242,7 +244,8 @@ window.onload = function() {
 					var currentJob = jobs[i];
 					while(currentJob.titleMarginTop > fifthHeightNeg){
 						element.marginTop = currentJob.titleMarginTop.toString() + "px";
-						currentJob.titleMarginTop -= 1;
+						element.transition = "all .5s"
+;						currentJob.titleMarginTop -= 1;
 						console.log(i + " up");
 					};
 				break;
@@ -257,8 +260,9 @@ window.onload = function() {
 				case(window.scrollX < ((i*viewportWidth) + thirdWidth) && window.scrollX >= (i*viewportWidth)):
 					var element = document.getElementsByClassName("job-content-title")[i].style;
 					var currentJob = jobs[i];
-					while(currentJob.titleMarginTop < fifthHeight){
+					while(currentJob.titleMarginTop < 0){
 						element.marginTop = currentJob.titleMarginTop.toString() + "px";
+						element.transition = "all .5s"
 						currentJob.titleMarginTop += 1;
 						console.log(i + " down b");
 					};
@@ -268,6 +272,7 @@ window.onload = function() {
 					var currentJob = jobs[i];
 					while(currentJob.titleMarginTop > fifthHeightNeg){
 						element.marginTop = currentJob.titleMarginTop.toString() + "px";
+						element.transition = "all .5s"
 						currentJob.titleMarginTop -= 1;
 						console.log(i + " up b");
 					};
