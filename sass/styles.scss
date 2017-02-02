@@ -63,8 +63,6 @@ body{
 	height: 20vH;
 }
 .job-description-content-skills{
-	// display: flex;
-	// flex: 1;
 	background-color: none;
 	border-size: 5px;
 	border: solid;
@@ -75,7 +73,6 @@ body{
 	width: 26.5%;
 	position: fixed;
 	font-size: 28px;
-	// transition: all 2s;
 }
 .hidden{
 	visibility: hidden;
@@ -84,9 +81,7 @@ body{
 	transition: opacity .5s ease;
 	opacity: 1.0;
 }
-// .color{
-// 	transition: opacity 60s ease;
-// 	opacity: 1.0;
-//   // background-color: red;
- 
-// }
+.beforeSkill{
+	transition: opacity .5s ease;
+	opacity: 1.0;
+}

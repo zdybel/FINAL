@@ -86,4 +86,8 @@ body {
   transition: opacity .5s ease;
   opacity: 1.0; }
 
+.beforeSkill {
+  transition: opacity .5s ease;
+  opacity: 1.0; }
+
 /*# sourceMappingURL=styles.css.map */
