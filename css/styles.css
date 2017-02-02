@@ -18,7 +18,7 @@ a {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   overflow-x: hidden;
   overflow-y: hidden; }
 
@@ -38,12 +38,10 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border: solid black 10px;
   height: 100vh;
   overflow: hidden; }
 
 .job-cell {
-  border: dotted grey 10px;
   height: 100vH; }
 
 .job {
@@ -58,7 +56,6 @@ body {
   width: 80%;
   display: block;
   margin: -20vH auto 120vH auto;
-  border: dotted grey 5px;
   font-size: 40px;
   text-align: center;
   color: black; }
@@ -69,5 +66,24 @@ body {
   margin: 0 auto;
   width: 80%;
   height: 20vH; }
+
+.job-description-content-skills {
+  background-color: none;
+  border-size: 5px;
+  border: solid;
+  border-color: transparent;
+  margin-left: 33%;
+  margin-right: 33%;
+  margin-top: 40vH;
+  width: 26.5%;
+  position: fixed;
+  font-size: 28px; }
+
+.hidden {
+  visibility: hidden; }
+
+.afterSkill {
+  transition: opacity .5s ease;
+  opacity: 1.0; }
 
 /*# sourceMappingURL=styles.css.map */
