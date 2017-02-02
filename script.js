@@ -73,39 +73,32 @@ window.onload = function() {
 	var storyboardContainer = document.getElementsByClassName("storyboard-container")[0];
 
 	//set job variables.
-	var red = new Job('1','red', 'An Awesome Job', fifthHeight, viewportHeight);
+	var red = new Job('1','red', 'An Awesome Job', 0, fifthHeight);
 	// red.addDescription("At this job I used ", "skill", " and also totally knew how to ", "skill")
 	red.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
 	var orange = new Job('2', 'orange', 'Not As Awesome of A Job', fifthHeightNeg, viewportHeight);
 	orange.description = ["This job was in ", "customer service(skill)", ". I learned a lot about ", "problem solving(skill)", " and ", "patience(skill)", "."];
-	var yellow = new Job('3','yellow', 'This Job Was Difficult', fifthHeightNeg);
-	var green = new Job('4', 'green', 'I am Proud of this Job', fifthHeightNeg);
-	var blue = new Job('5', 'blue', 'Company Name', fifthHeightNeg);
-	var indigo = new Job('6', 'indigo', 'Schooling', fifthHeightNeg);
-	var purple = new Job('7', 'purple', 'Great Company', fifthHeightNeg);
-	var black = new Job('8', 'black', 'So-so Company', fifthHeightNeg);
-	var grey = new Job('9', 'grey', 'Atlanta Job', fifthHeightNeg);
-	var pink = new Job('10', 'pink', 'Last Job', fifthHeightNeg);
+	var yellow = new Job('3','yellow', 'This Job Was Difficult', fifthHeightNeg, viewportHeight);
+	yellow.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	var green = new Job('4', 'green', 'I am Proud of this Job', fifthHeightNeg, viewportHeight);
+	green.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	var blue = new Job('5', 'blue', 'Company Name', fifthHeightNeg, viewportHeight);
+	blue.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	var indigo = new Job('6', 'indigo', 'Schooling', fifthHeightNeg, viewportHeight);
+	indigo.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	var purple = new Job('7', 'purple', 'Great Company', fifthHeightNeg, viewportHeight);
+	purple.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	var black = new Job('8', 'black', 'So-so Company', fifthHeightNeg, viewportHeight);
+	black.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	var grey = new Job('9', 'grey', 'Atlanta Job', fifthHeightNeg, viewportHeight);
+	grey.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	var pink = new Job('10', 'pink', 'Last Job', fifthHeightNeg, viewportHeight);
+	pink.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
 
 console.log(orange);
 console.log(orange.description);
 console.log(orange.description[0]);
 console.log(orange.description[1]);
-// for(looping through jobs)
-// 	var job = job[i]
-// 	for (looping through job.description){
-// 		if job.description[i]%2 == 0
-// 			job.description.AppendNormallyToTextBox
-// 		end
-// 		if job.description[i]%2 != 0
-// 			job.description.AppendWithSpanToTextBox
-// 		end
-// 	}
-// 	console.log
-
-// 	{for(arguments)
-// 		push(even)
-// 		push(oddinside ofspan)}
 
 	//set array of job variables to be looped through later. 
 	var jobs = [red, orange, yellow, green, blue, indigo, purple, black, grey, pink];
@@ -224,6 +217,9 @@ console.log(orange.description[1]);
 	   			}
 	   			stop+=1;
 	   		};
+	   		var firstCard = document.getElementsByClassName("job-content-title")[0].style;
+	   		firstCard.marginTop = "0px";
+	   		firstCard.marginBottom = fifthHeight.toString() + "px";
 		};
 	};
 
