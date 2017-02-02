@@ -79,21 +79,21 @@ window.onload = function() {
 	var orange = new Job('2', 'orange', 'Not As Awesome of A Job', fifthHeightNeg, viewportHeight);
 	orange.description = ["This job was in ", "customer service(skill)", ". I learned a lot about ", "problem solving(skill)", " and ", "patience(skill)", "."];
 	var yellow = new Job('3','yellow', 'This Job Was Difficult', fifthHeightNeg, viewportHeight);
-	yellow.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	yellow.description = ["This needs to be different then ", "other jobs(skill)", " so that I can ", "tell the difference between them(skill)", ". I really am tired today and want to ", "make an svg(skill)", "."];
 	var green = new Job('4', 'green', 'I am Proud of this Job', fifthHeightNeg, viewportHeight);
-	green.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	green.description = ["However I need to ", "keep going(skill)", ", because this project is very ", "important(skill)", " to me."];
 	var blue = new Job('5', 'blue', 'Company Name', fifthHeightNeg, viewportHeight);
-	blue.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	blue.description = ["I really want it to ", "be as good(skill)", " as possible. So I am working hard to make sure that everything ", "runs smoothly(skill)", "."];
 	var indigo = new Job('6', 'indigo', 'Schooling', fifthHeightNeg, viewportHeight);
-	indigo.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	indigo.description = ["But it isn't easy because you have to pay attention to ", "detail(skill)", ". And to do that takes long hours of a lot of", "concentration(skill)", ", which will creep up and wear on you if you aren't careful."];
 	var purple = new Job('7', 'purple', 'Great Company', fifthHeightNeg, viewportHeight);
-	purple.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	purple.description = ["This is why I am making sure to ", "get enough sleep(skill)", ", because without the proper amount of energy your brain doesn't ", "function at maximum capacity(skill)", "."];
 	var black = new Job('8', 'black', 'So-so Company', fifthHeightNeg, viewportHeight);
-	black.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	black.description = ["Also it is important to remember ", "to eat(skill)", ". I am immensely guilty of forgetting to do so when I am ", "in the zone(skill)", ". This is detrimental in the long run, I think.  Although it is really nice to work for hours on end and be able to get a lot of stuff done."];
 	var grey = new Job('9', 'grey', 'Atlanta Job', fifthHeightNeg, viewportHeight);
-	grey.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	grey.description = ["At this point, I am really just ", "rambling(skill)", ".  If you are testing my project, please don't judge me for this nonsensical  ", "bibble babble(skill)", ". I am almost going crazy with this project and the concentration it is taking."];
 	var pink = new Job('10', 'pink', 'Last Job', fifthHeightNeg, viewportHeight);
-	pink.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
+	pink.description = ["I am sure you have been in a situation where you have had to focus on a project for a long amount of time.  It ends up where it is like an  ", "obsession(skill)", ". Which has its positives and negatives.  When it goes well, it can mean you can  ", "get far in a project(skill)" + "."];
 
 console.log(orange);
 console.log(orange.description);
@@ -298,8 +298,6 @@ console.log(orange.description[1]);
 					var currentDescriptionArrayLength = currentDescriptionArray.length;
 					var jobDescriptionContentSkills = document.createElement("div");
 					var jobDescriptionContentSkillsStyle = jobDescriptionContentSkills.style;
-					console.log(currentJob.titleMarginBottom + "current bototm");
-					console.log(fifthHeight + "fifthHeight")
 					switch(true){
 						case(currentJob.titleMarginBottom <= fifthHeight):
 							document.body.appendChild(jobDescriptionContentSkills);
@@ -409,6 +407,21 @@ console.log(orange.description[1]);
 				case(window.scrollX > (i*viewportWidth) && window.scrollX < ((i*viewportWidth) + twoThirdWidth)):
 					var element = document.getElementsByClassName("job-cell")[i].style;
 					element.background = "white";
+					var currentJob = jobs[i];
+					var currentJobName = currentJob.name;
+					var afterSkills = document.getElementsByClassName("afterSkill");
+					var beforeSkills = document.getElementsByClassName("beforeSkill");
+					var afterSkillsLength = afterSkills.length;
+					var beforeSkillsLength = beforeSkills.length;
+					for(var x=0; x < afterSkillsLength; x++){
+						switch(true){
+							case(afterSkills[x].className == ("afterSkill" + " " + currentJobName  + " " + "color")):
+							console.log("happening");
+								afterSkills[x].classList.remove("color");
+								afterSkills[x].classList.add("hidden");
+							break;
+						}
+					}
 				break;
 			}
 		}

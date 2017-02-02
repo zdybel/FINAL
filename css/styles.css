@@ -82,11 +82,11 @@ body {
 .hidden {
   visibility: hidden; }
 
-.afterSkill {
+.beforeSkill {
   transition: opacity .5s ease;
   opacity: 1.0; }
 
-.beforeSkill {
+.color {
   transition: opacity .5s ease;
   opacity: 1.0; }
 

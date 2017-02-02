@@ -78,10 +78,14 @@ body{
 	visibility: hidden;
 }
 .afterSkill{
+	// transition: opacity .5s ease;
+	// opacity: 1.0;
+}
+.beforeSkill{
 	transition: opacity .5s ease;
 	opacity: 1.0;
 }
-.beforeSkill{
+.color{
 	transition: opacity .5s ease;
 	opacity: 1.0;
 }
