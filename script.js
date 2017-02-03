@@ -151,7 +151,7 @@ window.onload = function() {
 				currentJob.style.width = fourColumns.toString() + "px";
 				currentJob.style.marginLeft = fourColumns.toString() + "px";
 				currentJob.style.marginRight = fourColumns.toString() + "px";
-				currentJob.style.background = jobObject.name;
+				// currentJob.style.background = jobObject.name;
 	   			currentJobCell.appendChild(currentJob);
 	   			var currentJobContent = document.createElement("div");
 	   			currentJobContent.className = "job-content";
@@ -224,11 +224,11 @@ window.onload = function() {
 	function sideScroll(e){
 		e = e || window.event; listener(e);
 		if (e.delta > 0){      
-		    window.scrollBy(-15, 0);
+		    window.scrollBy(-10, 0);
 		    scrollBackward();
 		}
 		if (e.delta < 0){
-		    window.scrollBy(15, 0);
+		    window.scrollBy(10, 0);
 		    scrollForward();
 		}
 	};
@@ -337,7 +337,7 @@ window.onload = function() {
 					var element = document.getElementsByClassName("job")[i-1].style;
 					var previousJob = jobs[i-1];
 					previousJobName = previousJob.name;
-					element.background = previousJobName;
+					// element.background = previousJobName;
 					var previousSkills = document.getElementsByClassName("beforeSkill" + " " + previousJobName);
 					previousSkillsLength = previousSkills.length;
 					for(var x=0; x<previousSkillsLength; x++){

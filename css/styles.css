@@ -77,7 +77,8 @@ body {
   width: 26.5%;
   position: fixed;
   font-size: 28px;
-  display: none; }
+  display: none;
+  color: red; }
 
 .hidden {
   visibility: hidden; }
