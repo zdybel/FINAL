@@ -188,7 +188,7 @@ window.onload = function() {
 	   						newSpan.innerHTML = descriptionArray[x];
 	   						currentJobDescriptionContent.appendChild(newSpan);
 	   						newSpanAfter = document.createElement("span");
-	   						newSpanAfter.className= "afterSkill";
+	   						newSpanAfter.className= "afterSkill" + " " + jobObject.name;
 	   						newSpanAfter.innerHTML = descriptionArray[x];
 	   						jobDescriptionContentSkills.appendChild(newSpanAfter);
 	   					break;
@@ -244,6 +244,7 @@ window.onload = function() {
 				case(window.scrollX > (((i-1)*viewportWidth) + twoThirdWidth) && window.scrollX <= (i*viewportWidth)):
 					var element = document.getElementsByClassName("job-content-title")[i].style;
 					var currentJob = jobs[i];
+					var currentJobName = currentJob.name;
 					while(currentJob.titleMarginTop < 0){
 						element.marginTop = currentJob.titleMarginTop.toString() + "px";
 						element.transition = "all .5s";
@@ -253,6 +254,12 @@ window.onload = function() {
 					while(currentJob.titleMarginBottom > fifthHeight){
 						element.marginBottom = currentJob.titleMarginBottom.toString() + "px";
 							currentJob.titleMarginBottom -= .5;
+					}
+					currentAfterSkills = document.getElementsByClassName("afterSkill" + " " + currentJobName);
+					currentAfterSkillsLength = currentAfterSkills.length;
+					for(var x=0; x < currentAfterSkillsLength; x++){
+						currentAfterSkillsStyle= currentAfterSkills[x].style;
+						currentAfterSkillsStyle.fontSize = "28px";
 					}
 				break;
 				case(window.scrollX > ((i-1)*viewportWidth) && window.scrollX<(((i-1)*viewportWidth)+thirdWidth)):
@@ -289,9 +296,15 @@ window.onload = function() {
 						currentJob.titleMarginBottom += 1;
 					}
 					var currentJobDescriptionContentSkillsStyle = document.getElementsByClassName("job-description-content-skills")[i].style;
-					// currentJobDescriptionContentSkillsStyle.display = "none"; ADD THIS SOMEWHEREELSE- WHERE THE BEFORESKILL STIICK
 					currentJobDescriptionContentSkillsStyle.transition = "all 2s";
 					currentJobDescriptionContentSkillsStyle.opacity = "0.0";
+					currentAfterSkills = document.getElementsByClassName("afterSkill" + " " + currentJobName);
+					currentAfterSkillsLength = currentAfterSkills.length;
+					for(var x=0; x < currentAfterSkillsLength; x++){
+						currentAfterSkillsStyle= currentAfterSkills[x].style;
+						currentAfterSkillsStyle.transition = "all 2s";
+						currentAfterSkillsStyle.fontSize = "32px";
+					}
 					var beforeSkills = document.getElementsByClassName("beforeSkill" + " " + currentJobName);
 					var beforeSkillsLength = beforeSkills.length;
 					for(var x=0; x<beforeSkillsLength;x++){
@@ -338,6 +351,7 @@ window.onload = function() {
 					currentJobDescriptionContentSkillsStyle.display = "none";
 					currentJobDescriptionContentSkillsStyle.transition = "all .5s";
 					currentJobDescriptionContentSkillsStyle.opacity = "1.0";
+					currentJobDescriptionContentSkillsStyle.fontsize = "28px";
 					var beforeSkills = document.getElementsByClassName("beforeSkill" + " " + currentJobName);
 					var beforeSkillsLength = beforeSkills.length;
 					for(var x=0; x<beforeSkillsLength;x++){
