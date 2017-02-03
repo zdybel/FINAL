@@ -1,7 +1,6 @@
 window.onload = function() {
 
-	//the first four sections set all events to be passive.
-	//found https://github.com/zzarcon/default-passive-events
+	//the sets all events to be passive. found https://github.com/zzarcon/default-passive-events
 	(function() {
   	var supportsPassive = eventListenerOptionsSupported();  
 
@@ -202,16 +201,28 @@ console.log(orange.description[1]);
 	   			currentJobDescription.appendChild(currentJobDescriptionContent);
 	   			var descriptionArray = jobObject.description;
 	   			var descriptionLength = jobObject.description.length;
-	   			for(var x=0; x<descriptionLength; x++){
+	   			var jobDescriptionContentSkills = document.createElement("div");
+	   			jobDescriptionContentSkills.className = "job-description-content-skills";
+	   			jobDescriptionContentSkills.style.display = "none";
+	   			document.body.appendChild(jobDescriptionContentSkills);
+				for(var x=0; x<descriptionLength; x++){
 	   				switch(true){
 	   					case(x%2 ==0):
 	   						currentJobDescriptionContent.insertAdjacentHTML("beforeend", descriptionArray[x]);
+	   						var newSpan = document.createElement("span");
+	   						newSpan.className = "hidden";
+	   						newSpan.innerHTML = descriptionArray[x];
+	   						jobDescriptionContentSkills.appendChild(newSpan);
 	   					break;
 	   					case(x%2!=0):
 	   						var newSpan= document.createElement("span");
 	   						newSpan.className= "beforeSkill" + " " + jobObject.name;
 	   						newSpan.innerHTML = descriptionArray[x];
 	   						currentJobDescriptionContent.appendChild(newSpan);
+	   						newSpanAfter = document.createElement("span");
+	   						newSpanAfter.className= "afterSkill";
+	   						newSpanAfter.innerHTML = descriptionArray[x];
+	   						jobDescriptionContentSkills.appendChild(newSpanAfter);
 	   					break;
 	   				}
 	   			}
@@ -291,54 +302,31 @@ console.log(orange.description[1]);
 					};
 				break;
 				case(window.scrollX > ((i-1)*viewportWidth) && window.scrollX<(((i-1)*viewportWidth)+thirdWidth)):
-					var element = document.getElementsByClassName("job")[i-1].style;
-					var currentJob = jobs[i-1];
-					var currentJobName = currentJob.name;
-					var currentDescriptionArray = currentJob.description;
-					var currentDescriptionArrayLength = currentDescriptionArray.length;
-					var jobDescriptionContentSkills = document.createElement("div");
-					var jobDescriptionContentSkillsStyle = jobDescriptionContentSkills.style;
-					switch(true){
-						case(currentJob.titleMarginBottom <= fifthHeight):
-							document.body.appendChild(jobDescriptionContentSkills);
-							jobDescriptionContentSkills.className = "job-description-content-skills";	
-							jobDescriptionContentSkills.transition = "all .5s";
-							var skills = document.getElementsByClassName("beforeSkill");
-							var skillsLength = skills.length;
-							for(var x=0; x < currentDescriptionArrayLength; x++){
-								switch(true){
-		   							case(x%2 ==0):
-		   								var newSpan = document.createElement("span");
-		   								newSpan.className = "hidden" + " " + currentJob.name;
-		   								newSpan.innerHTML = currentDescriptionArray[x];
-		   								jobDescriptionContentSkills.appendChild(newSpan);
-		   							break;
-		   							case(x%2!=0):
-		   								var newSpan= document.createElement("span");
-		   								newSpan.className = "afterSkill" + " " + currentJob.name;
-		   								newSpan.innerHTML = currentDescriptionArray[x];
-		   								jobDescriptionContentSkills.appendChild(newSpan);
-		   							break;
-		   						}
-							}
-							var beforeSkills = document.getElementsByClassName("beforeSkill");
-							var beforeSkillsLength = beforeSkills.length;
-							for(var x=0; x< beforeSkillsLength; x++){
-								switch(true){
-									case(beforeSkills[x].className == "beforeSkill" + " " + currentJobName):
-										beforeSkills[x].classname = " " + "color";
-										beforeSkills[x].style.opacity = "0.0";
-									break;
-								}
-							}
-						break;
-					}
-					element.background = "white";
+					var jobDescriptionContentSkills = document.getElementsByClassName("job-description-content-skills");
+					console.log(jobDescriptionContentSkills[i-1]);
+					jobDescriptionContentSkills[i-1].style.display = "block";
+					var previousJobName = jobs[i-1].name;
+					var beforeSkills = document.getElementsByClassName("beforeSkill" + " " + previousJobName);
+					var beforeSkillsLength = beforeSkills.length;
+						for(var x=0; x< beforeSkillsLength; x++){
+									beforeSkills[x].classname = " " + "color";
+									beforeSkills[x].style.opacity = "0.0";
+						}
+				// 	element.background = "white";
 				break;
 				case(window.scrollX > ((i*viewportWidth) + thirdWidth) && window.scrollX < ((i*viewportWidth) + twoThirdWidth)):
 					var element = document.getElementsByClassName("job-content-title")[i].style;
 					var currentJob = jobs[i];
 					var currentJobName = jobs[i].name;
+					switch(true){
+						case(i>0):
+							var previousJob = jobs[(i-1)];
+						break;
+						case(i==0):
+							var previousJob = jobs[0];
+						break;
+					}
+					var previousJobName = previousJob.name;
 					while(currentJob.titleMarginTop > fifthHeightNeg){
 						element.marginTop = currentJob.titleMarginTop.toString() + "px";
 						element.transition = "all .5s"
@@ -349,20 +337,14 @@ console.log(orange.description[1]);
 						element.marginBottom = currentJob.titleMarginBottom.toString() + "px";
 						currentJob.titleMarginBottom += 1;
 					}
-					var afterSkills = document.getElementsByClassName("afterSkill");
-					var afterSkillsLength = afterSkills.length;
-					for(var x = 0; x < afterSkillsLength; x++){
-						switch(true){
-							case(afterSkills[x].className == "afterSkill" + " " + currentJobName):
-								afterSkills[x].className += " " + "color";
-								afterSkills[x].style.opacity = "0.0";
-							break;
-						}
-					}
+					var jobDescriptionContentSkills = document.getElementsByClassName("job-description-content-skills");
+					jobDescriptionContentSkills[i].style.display = "none";
+					var beforeSkills = document.getElementsByClassName("beforeSkill" + " " + previousJobName);
+					var beforeSkillsLength = beforeSkills.length;
 				break;
 				case(window.scrollX > (((i-1)*viewportWidth) + thirdWidth) && window.scrollX < (((i-1)*viewportWidth) + twoThirdWidth)):
 					var element = document.getElementsByClassName("job-cell")[i-1].style;
-					element.background = "pink";
+					// element.background = "pink";
 				break;
 			}
 		}	 
@@ -388,7 +370,16 @@ console.log(orange.description[1]);
 				break;
 				case(window.scrollX < (i*viewportWidth) && window.scrollX > (((i-1)*viewportWidth)+twoThirdWidth)):
 					var element = document.getElementsByClassName("job")[i-1].style;
-					element.background = jobs[i-1].name;
+					var previousJob = jobs[i-1];
+					previousJobName = previousJob.name;
+					element.background = previousJobName;
+					var previousSkills = document.getElementsByClassName("beforeSkill" + " " + previousJobName);
+					previousSkillsLength = previousSkills.length;
+					for(var x=0; x<previousSkillsLength; x++){
+						console.log(previousSkills[x]);
+						previousSkills[x].classList.remove = "color";
+						previousSkills[x].style.opacity = "1.0";
+					}
 				break;
 				case(window.scrollX < (((i-1)*viewportWidth)+ twoThirdWidth) && window.scrollX > (((i-1)*viewportWidth) + thirdWidth)):
 					var element = document.getElementsByClassName("job-content-title")[i].style;
