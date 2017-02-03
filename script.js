@@ -346,7 +346,6 @@ window.onload = function() {
 					}
 					var currentJob = jobs[i];
 					var currentJobName = currentJob.name;
-					console.log(currentJobName);
 					var currentJobDescriptionContentSkillsStyle = document.getElementsByClassName("job-description-content-skills")[i].style;
 					currentJobDescriptionContentSkillsStyle.display = "none";
 					currentJobDescriptionContentSkillsStyle.transition = "all .5s";
