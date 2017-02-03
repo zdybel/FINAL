@@ -11,7 +11,6 @@ body{
 
 .body-container{
 	flex: 1;
-	//example: $example-variable;
 	height: 100vH;
 	overflow: hidden;
 	display: flex;
@@ -27,18 +26,15 @@ body{
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-	// border : solid black 10px;
 	height: 100vh;
 	overflow: hidden;
 }
 
 .job-cell{
-	// border: dotted grey 10px;
 	height: 100vH;
 }
 
 .job{
-  transition: 2s, transform;
   height: 100vH;
   position: absolute; 
 }
@@ -50,7 +46,6 @@ body{
 	width: 80%;
 	display: block;
 	margin: -20vH auto 120vH auto;
-	// border: dotted grey 5px;
 	font-size: 40px;
 	text-align: center;
 	color: black;
@@ -73,13 +68,14 @@ body{
 	width: 26.5%;
 	position: fixed;
 	font-size: 28px;
+	display: none;
+	 -webkit-transition: display 30s; /* For Safari 3.1 to 6.0 */
+    transition: width 30s;
 }
 .hidden{
 	visibility: hidden;
 }
 .afterSkill{
-	// transition: opacity .5s ease;
-	// opacity: 1.0;
 }
 .beforeSkill{
 	transition: opacity .5s ease;

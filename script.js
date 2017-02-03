@@ -172,7 +172,6 @@ window.onload = function() {
 	   			var descriptionLength = jobObject.description.length;
 	   			var jobDescriptionContentSkills = document.createElement("div");
 	   			jobDescriptionContentSkills.className = "job-description-content-skills";
-	   			jobDescriptionContentSkills.style.display = "none";
 	   			document.body.appendChild(jobDescriptionContentSkills);
 				for(var x=0; x<descriptionLength; x++){
 	   				switch(true){

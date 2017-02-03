@@ -45,7 +45,6 @@ body {
   height: 100vH; }
 
 .job {
-  transition: 2s, transform;
   height: 100vH;
   position: absolute; }
 
@@ -77,7 +76,11 @@ body {
   margin-top: 40vH;
   width: 26.5%;
   position: fixed;
-  font-size: 28px; }
+  font-size: 28px;
+  display: none;
+  -webkit-transition: display 30s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 30s; }
 
 .hidden {
   visibility: hidden; }
