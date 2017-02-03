@@ -3,18 +3,15 @@ window.onload = function() {
 	//the sets all events to be passive. found https://github.com/zzarcon/default-passive-events
 	(function() {
   	var supportsPassive = eventListenerOptionsSupported();  
-
   	if (supportsPassive) {
     	var addEvent = EventTarget.prototype.addEventListener;
     	overwriteAddEvent(addEvent);
   	}
-
   	function overwriteAddEvent(superMethod) {
     var defaultOptions = {
       passive: true,
       capture: false
     };
-
     EventTarget.prototype.addEventListener = function(type, listener, options) {
       var usesListenerOptions = typeof options === 'object';
       var useCapture = usesListenerOptions ? options.capture : options;
@@ -26,7 +23,6 @@ window.onload = function() {
       superMethod.call(this, type, listener, options);
     };
   }
-
   	function eventListenerOptionsSupported() {
 	    var sopported = false;
 	    try {
@@ -40,7 +36,6 @@ window.onload = function() {
 		    return sopported;
 	  	}
 	})();
- 
  	//object constructor for jobs. 
 	function Job(id, name, word, titleMarginTop, titleMarginBottom, description){
     	this.id = id;
@@ -49,16 +44,7 @@ window.onload = function() {
 		this.titleMarginTop = titleMarginTop;
 		this.titleMarginBottom = titleMarginBottom;
 		this.description = [];
-		// this.addDescription = function(*args){
-		// 	description.push(args)
-		// }
-		;
- 	// this.checkCode = function(){
- 	// if(expir isBeforeOrEqualTo todaysDate){
- 	// return true
- 	// }
 	};
-
 	//set variable for veiwport width.
 	var viewportWidth = document.documentElement.clientWidth;
 	var viewportHeight = document.documentElement.clientHeight;
@@ -66,11 +52,9 @@ window.onload = function() {
 	var fifthHeightNeg = viewportHeight * -.2;
 	var thirdWidth = viewportWidth * (1/3);
 	var twoThirdWidth = viewportWidth * (2/3);
-
 	//set variables for DOM elements for readability. 
 	var bodyContainer = document.getElementsByClassName("body-container")[0];
 	var storyboardContainer = document.getElementsByClassName("storyboard-container")[0];
-
 	//set job variables.
 	var red = new Job('1','red', 'An Awesome Job', 0, fifthHeight);
 	// red.addDescription("At this job I used ", "skill", " and also totally knew how to ", "skill")
@@ -93,18 +77,10 @@ window.onload = function() {
 	grey.description = ["At this point, I am really just ", "rambling(skill)", ".  If you are testing my project, please don't judge me for this nonsensical  ", "bibble babble(skill)", ". I am almost going crazy with this project and the concentration it is taking."];
 	var pink = new Job('10', 'pink', 'Last Job', fifthHeightNeg, viewportHeight);
 	pink.description = ["I am sure you have been in a situation where you have had to focus on a project for a long amount of time.  It ends up where it is like an  ", "obsession(skill)", ". Which has its positives and negatives.  When it goes well, it can mean you can  ", "get far in a project(skill)" + "."];
-
-console.log(orange);
-console.log(orange.description);
-console.log(orange.description[0]);
-console.log(orange.description[1]);
-
 	//set array of job variables to be looped through later. 
 	var jobs = [red, orange, yellow, green, blue, indigo, purple, black, grey, pink];
-
 	//set jobs.length as jobsLength integer, to store as cached integer and to avoid having to scroll through object to get this integer.
 	var jobsLength = jobs.length;
-
 	//set variables for job cards based on width of bar-container div so that cards will always be spaced porportionately.
 	var storyboardWidth = viewportWidth*jobsLength;
 	var width = storyboardWidth;
@@ -114,19 +90,14 @@ console.log(orange.description[1]);
 	var fourColumns = columnPx * 4;
 	var eightColumns = columnPx * 8;
 	var twelveColumns = columnPx * 12;
-
-
 	//call makeJobCards.
 	makeJobCards();
-
 	//call changeViewportWidth, passing in jobsLength as integer.
 	changeViewportWidth();
-
 	//add event listener so when window changes, viewportWidth variable also changes, passing in jobsLength as integer.
 	window.addEventListener("resize", changeViewportWidth);
-
+	//add event listener so "mousewheel" event will run sideScroll
 	window.addEventListener("mousewheel", sideScroll);
-
 	//change viewportWidth variable to current viewport width and set elements widths accordingly, passing in jobsLength as integer.
 	function changeViewportWidth(){
 		//reset variables according to new viewport width
@@ -163,8 +134,6 @@ console.log(orange.description[1]);
 			mobileScroll();
 		};
 	};
-
-
 	//this function makes cards for each of the jobs, with sizes based on width of storyboard div.
 	function makeJobCards(){
 		//set varaible that is used in if statement in makeJobCards so that the for loop only runs as many times as there are jobs.
@@ -233,9 +202,7 @@ console.log(orange.description[1]);
 	   		firstCard.marginBottom = fifthHeight.toString() + "px";
 		};
 	};
-
-	//the following three sections allow page to scroll right when the user scrolls up and left when the user scrolls down. 
-	//explanation at http://phrogz.net/js/wheeldelta.html.
+	//the following three sections allow page to scroll right when the user scrolls up and left when the user scrolls down. explanation at http://phrogz.net/js/wheeldelta.html.
 	//this function sets delta for mousewheel event on any browser. 
 	function normalize_mousewheel(e) {
 	    var //o = e.originalEvent,
@@ -250,56 +217,44 @@ console.log(orange.description[1]);
 	    // Delta *should* not be greater than 2...
 	    e.delta = Math.min(Math.max(d / 2, -1), 1);
 	}
-
 	//this function plugs in information from the following section and plugs it into the section above
 	function listener(e) {
 	    normalize_mousewheel(e);
 	}
-
 	//this function takes the mousewheel event, sends it through the above section (which sends it through normalize_mousewheel), and then tells the body_container div to move right if delta is positive(scroll up) and left if delta is negative(scroll down).
 	function sideScroll(e){
-		// var bodyContainer = document.getElementsByClassName("body-container")[0];
-		// if ('onmousewheel' in bodyContainer) {
-		//     bodyContainer.onmousewheel = function(e) {
-		        e = e || window.event;
-		        listener(e);
-		        if (e.delta > 0){      
-		        	window.scrollBy(-15, 0);
-		        	scrollBackward();
-		        }
-		        if (e.delta < 0){
-		     		window.scrollBy(15, 0);
-		     		scrollForward();
-				}
-			// }
-		// } else {
-		//     bodyContainer.addEventListener('DOMMouseScroll', listener);
-		// };
+		e = e || window.event; listener(e);
+		if (e.delta > 0){      
+		    window.scrollBy(-15, 0);
+		    scrollBackward();
+		}
+		if (e.delta < 0){
+		    window.scrollBy(15, 0);
+		    scrollForward();
+		}
 	};
-
 	function mobileScroll(){
 		document.getElementsByTagName("body")[0].style.overflowY = "auto"; 
 		window.addEventListener("scroll", function(){
 			document.getElementsByClassName("body-container")[0].translate(25, 0);
 		});
 	};
-
 	function scrollForward(){
 		for(var i=0; i<jobsLength; i++){		
 			switch (true) {
 				case(window.scrollX > (((i-1)*viewportWidth) + twoThirdWidth) && window.scrollX <= (i*viewportWidth)):
 					var element = document.getElementsByClassName("job-content-title")[i].style;
 					var currentJob = jobs[i];
-					while(currentJob.titleMarginTop <= 0){
+					while(currentJob.titleMarginTop < 0){
 						element.marginTop = currentJob.titleMarginTop.toString() + "px";
 						element.transition = "all .5s";
 						currentJob.titleMarginTop += .1;
-						console.log(i + " down");
+						//console.log(i + "down");
 					};
-					while(currentJob.titleMarginBottom >= fifthHeight){
+					while(currentJob.titleMarginBottom > fifthHeight){
 						element.marginBottom = currentJob.titleMarginBottom.toString() + "px";
-						currentJob.titleMarginBottom -= .5;
-					};
+							currentJob.titleMarginBottom -= .5;
+					}
 				break;
 				case(window.scrollX > ((i-1)*viewportWidth) && window.scrollX<(((i-1)*viewportWidth)+thirdWidth)):
 					var jobDescriptionContentSkillStyle = document.getElementsByClassName("job-description-content-skills")[i-1].style;
@@ -310,7 +265,6 @@ console.log(orange.description[1]);
 					for(var x=0; x< beforeSkillsLength; x++){
 						beforeSkills[x].style.visibility = "hidden";
 					}
-				// 	element.background = "white";
 				break;
 				case(window.scrollX > ((i*viewportWidth) + thirdWidth) && window.scrollX < ((i*viewportWidth) + twoThirdWidth)):
 					var element = document.getElementsByClassName("job-content-title")[i].style;
@@ -327,9 +281,9 @@ console.log(orange.description[1]);
 					var previousJobName = previousJob.name;
 					while(currentJob.titleMarginTop > fifthHeightNeg){
 						element.marginTop = currentJob.titleMarginTop.toString() + "px";
-						element.transition = "all .5s"
-;						currentJob.titleMarginTop -= 1;
-						console.log(i + " up");
+						element.transition = "all .5s";
+						currentJob.titleMarginTop -= 1;
+						// console.log(i + " up");
 					};
 					while(currentJob.titleMarginBottom < viewportHeight){
 						element.marginBottom = currentJob.titleMarginBottom.toString() + "px";
@@ -344,14 +298,10 @@ console.log(orange.description[1]);
 					}
 				break;
 				case(window.scrollX > (((i-1)*viewportWidth) + thirdWidth) && window.scrollX < (((i-1)*viewportWidth) + twoThirdWidth)):
-					var element = document.getElementsByClassName("job-cell")[i-1].style;
-					// element.background = "pink";
 				break;
 			}
 		}	 
-	};
-
-	
+	};	
 	function scrollBackward(){
 		for(var i=0; i<jobsLength; i++){
 			switch (true) {
@@ -362,7 +312,7 @@ console.log(orange.description[1]);
 						element.marginTop = currentJob.titleMarginTop.toString() + "px";
 						element.transition = "all .5s"
 						currentJob.titleMarginTop += 1;
-						console.log(i + " down b");
+						// console.log(i + " down b");
 					};
 					while(currentJob.titleMarginBottom > fifthHeight){
 						element.marginBottom = currentJob.titleMarginBottom.toString() + "px";
@@ -398,7 +348,7 @@ console.log(orange.description[1]);
 						element.marginTop = currentJob.titleMarginTop.toString() + "px";
 						element.transition = "all .5s"
 						currentJob.titleMarginTop -= 1;
-						console.log(i + " up b");
+						// console.log(i + " up b");
 					};
 					while(currentJob.titleMarginBottom < viewportHeight){
 						element.marginBottom = currentJob.titleMarginBottom.toString() + "px";
@@ -406,18 +356,6 @@ console.log(orange.description[1]);
 					}
 				break;
 				case(window.scrollX > (i*viewportWidth) && window.scrollX < ((i*viewportWidth) + twoThirdWidth)):
-					// var element = document.getElementsByClassName("job-cell")[i].style;
-					// element.background = "white";
-					// var currentJob = jobs[i];
-					// var currentJobName = currentJob.name;
-					// console.log(currentJobName);
-					// var currentJobDescriptionContentSkillsStyle = document.getElementsByClassName("job-description-content-skills")[i].style;
-					// currentJobDescriptionContentSkillsStyle.display = "none";
-					// var beforeSkills = document.getElementsByClassName("beforeSkill" + " " + currentJobName);
-					// var beforeSkillsLength = beforeSkills.length;
-					// for(var x=0; x<beforeSkillsLength;x++){
-					// 	beforeSkills[x].style.visibility = "visible";
-					// }
 				break;
 			}
 		}
