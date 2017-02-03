@@ -77,10 +77,7 @@ body {
   width: 26.5%;
   position: fixed;
   font-size: 28px;
-  display: none;
-  -webkit-transition: display 30s;
-  /* For Safari 3.1 to 6.0 */
-  transition: width 30s; }
+  display: none; }
 
 .hidden {
   visibility: hidden; }

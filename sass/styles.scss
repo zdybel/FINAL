@@ -69,8 +69,8 @@ body{
 	position: fixed;
 	font-size: 28px;
 	display: none;
-	 -webkit-transition: display 30s; /* For Safari 3.1 to 6.0 */
-    transition: width 30s;
+	 // -webkit-transition: opacity 30s; For Safari 3.1 to 6.0
+  //   transition: opacity 30s;
 }
 .hidden{
 	visibility: hidden;

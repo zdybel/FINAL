@@ -289,7 +289,9 @@ window.onload = function() {
 						currentJob.titleMarginBottom += 1;
 					}
 					var currentJobDescriptionContentSkillsStyle = document.getElementsByClassName("job-description-content-skills")[i].style;
-					currentJobDescriptionContentSkillsStyle.display = "none";
+					// currentJobDescriptionContentSkillsStyle.display = "none"; ADD THIS SOMEWHEREELSE- WHERE THE BEFORESKILL STIICK
+					currentJobDescriptionContentSkillsStyle.transition = "all 2s";
+					currentJobDescriptionContentSkillsStyle.opacity = "0.0";
 					var beforeSkills = document.getElementsByClassName("beforeSkill" + " " + currentJobName);
 					var beforeSkillsLength = beforeSkills.length;
 					for(var x=0; x<beforeSkillsLength;x++){
@@ -334,6 +336,8 @@ window.onload = function() {
 					console.log(currentJobName);
 					var currentJobDescriptionContentSkillsStyle = document.getElementsByClassName("job-description-content-skills")[i].style;
 					currentJobDescriptionContentSkillsStyle.display = "none";
+					currentJobDescriptionContentSkillsStyle.transition = "all .5s";
+					currentJobDescriptionContentSkillsStyle.opacity = "1.0";
 					var beforeSkills = document.getElementsByClassName("beforeSkill" + " " + currentJobName);
 					var beforeSkillsLength = beforeSkills.length;
 					for(var x=0; x<beforeSkillsLength;x++){
