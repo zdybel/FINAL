@@ -8,6 +8,7 @@ body{
 	overflow-x: hidden;
 	overflow-y: hidden;
 	height: 100vH;
+	// position: fixed;
 }
 
 .body-container{
@@ -19,7 +20,7 @@ body{
 	justify-content: space-around;
 	align-items: center;
 	transition: 1s, transform;
-
+	// position: fixed;
 	// overflow-x: hidden;
 	// overflow-y: hidden;
 }
@@ -32,6 +33,7 @@ body{
 	align-items: center;
 	height: 100vH;
 	overflow: hidden;
+	// position: fixed;
 }
 
 .job-cell{
