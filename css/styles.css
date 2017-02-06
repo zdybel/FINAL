@@ -16,6 +16,9 @@ a {
   text-decoration: none; }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   overflow-x: hidden;
   overflow-y: hidden;
   height: 100vH; }
