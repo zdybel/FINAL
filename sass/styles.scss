@@ -2,11 +2,12 @@
 @import 'size-variables';
 
 body{
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
+	// display: flex;
+	// flex-direction: column;
+	// justify-content: flex-start;
 	overflow-x: hidden;
 	overflow-y: hidden;
+	height: 100vH;
 }
 
 .body-container{
@@ -18,6 +19,9 @@ body{
 	justify-content: space-around;
 	align-items: center;
 	transition: 1s, transform;
+
+	// overflow-x: hidden;
+	// overflow-y: hidden;
 }
 
 .storyboard-container{ 
@@ -26,7 +30,7 @@ body{
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-	height: 100vh;
+	height: 100vH;
 	overflow: hidden;
 }
 
@@ -40,7 +44,7 @@ body{
 }
 
 .job-content-title{
-	height: 20vH;
+	// height: 20vH;
 	background-color: none;
 	padding: 5vH;
 	width: 80%;
@@ -64,7 +68,7 @@ body{
 	border-color: rgba(0,0,0,0);
 	margin-left: 33%;
 	margin-right: 33%;
-	margin-top:40vH;
+	// margin-top:40vH;
 	width: 26.5%;
 	position: fixed;
 	font-size: 28px;

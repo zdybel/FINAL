@@ -264,7 +264,7 @@ window.onload = function() {
 				break;
 				case(window.scrollX > ((i-1)*viewportWidth) && window.scrollX<(((i-1)*viewportWidth)+thirdWidth)):
 					var jobDescriptionContentSkillStyle = document.getElementsByClassName("job-description-content-skills")[i-1].style;
-					jobDescriptionContentSkillStyle.display = "block";
+					jobDescriptionContentSkillStyle.display = "flex";
 					var previousJobName = jobs[i-1].name;
 					var beforeSkills = document.getElementsByClassName("beforeSkill" + " " + previousJobName);
 					var beforeSkillsLength = beforeSkills.length;

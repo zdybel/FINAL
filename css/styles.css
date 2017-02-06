@@ -16,11 +16,9 @@ a {
   text-decoration: none; }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   overflow-x: hidden;
-  overflow-y: hidden; }
+  overflow-y: hidden;
+  height: 100vH; }
 
 .body-container {
   flex: 1;
@@ -38,7 +36,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  height: 100vh;
+  height: 100vH;
   overflow: hidden; }
 
 .job-cell {
@@ -49,7 +47,6 @@ body {
   position: absolute; }
 
 .job-content-title {
-  height: 20vH;
   background-color: none;
   padding: 5vH;
   width: 80%;
@@ -73,7 +70,6 @@ body {
   border-color: transparent;
   margin-left: 33%;
   margin-right: 33%;
-  margin-top: 40vH;
   width: 26.5%;
   position: fixed;
   font-size: 28px;
