@@ -90,6 +90,7 @@ window.onload = function() {
 	var fourColumns = columnPx * 4;
 	var eightColumns = columnPx * 8;
 	var twelveColumns = columnPx * 12;
+	var brynnePx = columnPx/7;
 	//call makeJobCards.
 	makeJobCards();
 	//call changeViewportWidth, passing in jobsLength as integer.
@@ -116,6 +117,7 @@ window.onload = function() {
 		fourColumns = columnPx * 4;
 		eightColumns = columnPx * 8;
 		twelveColumns = columnPx * 12;
+		var brynnePx = columnPx/7;
 		//reset size of all the things according to new variables
 		bodyContainer.style.width = storyboardWidth.toString() + "px";
 		storyboardContainer.style.width = storyboardWidth.toString() + "px";

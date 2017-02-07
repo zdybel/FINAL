@@ -23,6 +23,15 @@ body {
   overflow-y: hidden;
   height: 100vH; }
 
+.fixed {
+  display: flex;
+  position: fixed;
+  top: 18vH;
+  right: 0;
+  width: 100%;
+  height: 20vH;
+  background-color: pink; }
+
 .body-container {
   flex: 1;
   height: 100vH;
