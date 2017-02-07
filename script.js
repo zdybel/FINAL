@@ -1,5 +1,6 @@
 window.onload = function() {
 
+
 	//the sets all events to be passive. found https://github.com/zzarcon/default-passive-events
 	(function() {
   	var supportsPassive = eventListenerOptionsSupported();  
@@ -145,6 +146,11 @@ window.onload = function() {
 	};
 	//this function makes cards for each of the jobs, with sizes based on width of storyboard div.
 	function makeJobCards(){
+		// window.scrollTo = (0, 0);
+		// document.body.scrollLeft = 0;
+		// document.getElementsByClassName("body-container")[0].scrollLeft = 0;
+		// document.getElementsByClassName("storyboard-container")[0].scrollLeft = 0;
+		// window.scrollY = 0;
 		//set varaible that is used in if statement in makeJobCards so that the for loop only runs as many times as there are jobs.
 		var stop = 0;
 		if (stop <= jobsLength){
@@ -209,7 +215,18 @@ window.onload = function() {
 	   		firstCard.marginTop = "0px";
 	   		firstCard.marginBottom = fifthHeight.toString() + "px";
 		};
+		window.scrollTo = (0, 0);
+		document.body.scrollLeft = 0;
+		document.getElementsByClassName("fixed")[0].scrollLEft = 0;
+		document.getElementsByClassName("body-container")[0].scrollLeft = 0;
+		document.getElementsByClassName("storyboard-container")[0].scrollLeft = 0;
+		document.getElementsByClassName("job")[0].scrollLeft = 0;
+		document.getElementsByClassName("job-cell")[0].scrollLeft = 0;
+		document.getElementsByClassName("job-content")[0].scrollLeft = 0;
+		document.getElementsByClassName("job-description-content")[0].scrollLeft = 0;
+		// document.getElementsByClassName("job-")
 	};
+
 	//the following three sections allow page to scroll right when the user scrolls up and left when the user scrolls down. explanation at http://phrogz.net/js/wheeldelta.html.
 	//this function sets delta for mousewheel event on any browser. 
 	function normalize_mousewheel(e) {
@@ -248,6 +265,8 @@ window.onload = function() {
 		});
 	};
 	function scrollForward(){
+		// var that = document.getElementsByClassName("job-cell")[0].marginRight();
+		// console.log(that);
 		for(var i=0; i<jobsLength; i++){		
 			switch (true) {
 				case(window.scrollX > (((i-1)*viewportWidth) + twoThirdWidth) && window.scrollX <= (i*viewportWidth)):
