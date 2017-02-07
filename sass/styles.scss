@@ -18,7 +18,7 @@ body{
 	right: 0;
 	width: 100%;
 	height: 20vH;
-	background-color: pink;
+	// background-color: pink;
 }
 
 .body-container{
@@ -31,8 +31,8 @@ body{
 	align-items: center;
 	transition: 1s, transform;
 	// position: fixed;
-	// overflow-x: hidden;
-	// overflow-y: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 .storyboard-container{ 

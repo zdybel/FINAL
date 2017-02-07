@@ -37,12 +37,13 @@ window.onload = function() {
 	  	}
 	})();
  	//object constructor for jobs. 
-	function Job(id, name, word, titleMarginTop, titleMarginBottom, description){
+	function Job(id, name, word, titleMarginTop, titleMarginBottom, description, brynneMoves){
     	this.id = id;
 		this.name = name;
 		this.word = word;
 		this.titleMarginTop = titleMarginTop;
 		this.titleMarginBottom = titleMarginBottom;
+		this.brynneMoves = brynneMoves;
 		this.description = [];
 	};
 	//set variable for veiwport width.
@@ -58,6 +59,7 @@ window.onload = function() {
 	//set job variables.
 	var red = new Job('1','red', 'An Awesome Job', 0, fifthHeight);
 	// red.addDescription("At this job I used ", "skill", " and also totally knew how to ", "skill")
+	red.brynneMoves = 1;
 	red.description = ["At this job I used ", "adobe(skill)", " to ", "work in groups(skill)", ". I knew I could do it. This ", "positive attitude(skill)", " really helped in this partidular field."];
 	var orange = new Job('2', 'orange', 'Not As Awesome of A Job', fifthHeightNeg, viewportHeight);
 	orange.description = ["This job was in ", "customer service(skill)", ". I learned a lot about ", "problem solving(skill)", " and ", "patience(skill)", "."];
@@ -90,7 +92,8 @@ window.onload = function() {
 	var fourColumns = columnPx * 4;
 	var eightColumns = columnPx * 8;
 	var twelveColumns = columnPx * 12;
-	var brynnePx = columnPx/7;
+	var brynnePx = thirdWidth/7;
+	var brynneMoves = jobs[0].brynneMoves;
 	//call makeJobCards.
 	makeJobCards();
 	//call changeViewportWidth, passing in jobsLength as integer.
@@ -117,7 +120,11 @@ window.onload = function() {
 		fourColumns = columnPx * 4;
 		eightColumns = columnPx * 8;
 		twelveColumns = columnPx * 12;
-		var brynnePx = columnPx/7;
+		// var brynnePx = columnPx/7;
+		var brynnePx = thirdWidth/6;
+		var brynneMoves = jobs[0].brynneMoves;
+		// var vpwDivideJobs = viewportWidth/jobsLength;
+		// var brynneMargin = vpwDivideJobs/7;
 		//reset size of all the things according to new variables
 		bodyContainer.style.width = storyboardWidth.toString() + "px";
 		storyboardContainer.style.width = storyboardWidth.toString() + "px";
@@ -263,6 +270,71 @@ window.onload = function() {
 						currentAfterSkillsStyle= currentAfterSkills[x].style;
 						currentAfterSkillsStyle.fontSize = "28px";
 					}
+					var brynne = document.getElementById("brynne");
+					var brynneStyle = brynne.style;
+					// var stop = 0;
+					switch(true){
+						case(window.scrollX >= ((((i-1)*viewportWidth)+twoThirdWidth) + brynnePx) && window.scrollX < ((((i-1)*viewportWidth)+twoThirdWidth) + (2*brynnePx))):
+						for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallbackward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
+							brynneMoves += 1;
+							console.log("one");
+							y+=1;
+							}
+						break;
+						case(window.scrollX >= ((((i-1)*viewportWidth)+twoThirdWidth) + (2*brynnePx)) && window.scrollX < ((((i-1)*viewportWidth)+twoThirdWidth) + (2*brynnePx))):
+							for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallforward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+							brynneMoves += 1;
+							console.log("two");
+								y+=1;
+							}
+						break;
+						case(window.scrollX >= ((((i-1)*viewportWidth)+twoThirdWidth) + (3*brynnePx)) && window.scrollX < ((((i-1)*viewportWidth)+twoThirdWidth) + (2*brynnePx))):
+							for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallbackward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+							brynneMoves += 1;
+							console.log("three");
+								y+=1;
+							}
+						break;
+						case(window.scrollX >= ((((i-1)*viewportWidth)+twoThirdWidth) + (4*brynnePx)) && window.scrollX < ((((i-1)*viewportWidth)+twoThirdWidth) + (2*brynnePx))):
+							for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallforward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+							brynneMoves += 1;
+							console.log("four");
+								y+=1;
+							}
+						break;
+						case(window.scrollX >= ((((i-1)*viewportWidth)+twoThirdWidth) + (5*brynnePx)) && window.scrollX < ((((i-1)*viewportWidth)+twoThirdWidth) + (2*brynnePx))):
+							for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallbackward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+							brynneMoves += 1;
+							console.log("five");
+								y+=1;
+							}
+						break;
+						case(window.scrollX >= ((((i-1)*viewportWidth)+twoThirdWidth) + (6*brynnePx)) && window.scrollX < ((((i-1)*viewportWidth)+twoThirdWidth) + (2*brynnePx))):
+							for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallforward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+							brynneMoves += 1;
+							console.log("six");
+								y+=1;
+							}
+						break;
+					}
 				break;
 				case(window.scrollX > ((i-1)*viewportWidth) && window.scrollX<(((i-1)*viewportWidth)+thirdWidth)):
 					var jobDescriptionContentSkillStyle = document.getElementsByClassName("job-description-content-skills")[i-1].style;
@@ -272,6 +344,71 @@ window.onload = function() {
 					var beforeSkillsLength = beforeSkills.length;
 					for(var x=0; x< beforeSkillsLength; x++){
 						beforeSkills[x].style.visibility = "hidden";
+					}
+					var brynne = document.getElementById("brynne");
+					var brynneStyle = brynne.style;
+					var brynneMargin = ((viewportWidth/jobsLength/6))/10;
+					switch(true){
+						case(window.scrollX >= (((i-1)*viewportWidth) + brynnePx) && window.scrollX < (((i-1)*viewportWidth) + (2*brynnePx))):
+						for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallbackward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
+							brynneMoves += 1;
+							console.log("one");
+							y+=1;
+						}
+						break;
+						case(window.scrollX >= ((i-1)*viewportWidth)+ (2*brynnePx)) && window.scrollX < (((i-1)*viewportWidth) + (3*brynnePx)):
+							for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallforward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+							brynneMoves += 1;
+							console.log("two");
+								y+=1;
+						}
+						break;
+						case(window.scrollX >= ((i-1)*viewportWidth)+(3*brynnePx)) && window.scrollX < (((i-1)*viewportWidth) + (4*brynnePx)):
+							for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallbackward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+							brynneMoves += 1;
+							console.log("three");
+								y+=1;
+						}
+						break;
+						case(window.scrollX >= ((i-1)*viewportWidth)+(4*brynnePx)) && window.scrollX < (((i-1)*viewportWidth) + (5*brynnePx)):
+							for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallforward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+							brynneMoves += 1;
+							console.log("four");
+								y+=1;
+						}
+						break;
+						case(window.scrollX >= ((i-1)*viewportWidth)+(5*brynnePx)) && window.scrollX < (((i-1)*viewportWidth) + (6*brynnePx)):
+							for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallbackward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+							brynneMoves += 1;
+							console.log("five");
+								y+=1;
+						}
+						break;
+						case(window.scrollX >= ((i-1)*viewportWidth)+(6*brynnePx)) && window.scrollX < (((i-1)*viewportWidth) + (7*brynnePx)):
+							for(var y=0; y<1; y++){
+							brynne.src = "images/rightsmallforward.svg";
+							var currentBrynneMargin = (brynneMargin*brynneMoves);
+							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+							brynneMoves += 1;
+							console.log("six");
+								y+=1;
+						}
+						break;
 					}
 				break;
 				case(window.scrollX > ((i*viewportWidth) + thirdWidth) && window.scrollX < ((i*viewportWidth) + twoThirdWidth)):
