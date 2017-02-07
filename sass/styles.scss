@@ -68,10 +68,10 @@ body{
 	border-size: 5px;
 	border: solid;
 	border-color: rgba(0,0,0,0);
-	margin-left: 33%;
-	margin-right: 33%;
-	// margin-top:40vH;
-	width: 26.5%;
+	margin-left: 36.6%;
+	margin-right: 36.6%;
+	margin-top:40vH;
+	width: 26.8%;
 	position: fixed;
 	font-size: 28px;
 	display: none;
@@ -81,8 +81,10 @@ body{
 }
 .hidden{
 	visibility: hidden;
+	// display: flex;
 }
 .afterSkill{
+	display: inline-block;
 }
 .beforeSkill{
 	transition: opacity .5s ease;

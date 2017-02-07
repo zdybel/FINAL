@@ -178,8 +178,8 @@ window.onload = function() {
 	   					case(x%2 ==0):
 	   						currentJobDescriptionContent.insertAdjacentHTML("beforeend", descriptionArray[x]);
 	   						var newSpan = document.createElement("span");
-	   						newSpan.className = "hidden";
 	   						newSpan.innerHTML = descriptionArray[x];
+	   						newSpan.className = "hidden";
 	   						jobDescriptionContentSkills.appendChild(newSpan);
 	   					break;
 	   					case(x%2!=0):
