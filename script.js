@@ -250,7 +250,7 @@ window.onload = function() {
 	function sideScroll(e){
 		e = e || window.event; listener(e);
 		if (e.delta > 0){      
-		    window.scrollBy(-6, 0);
+		    window.scrollBy(-10, 0);
 		    scrollBackward();
 		}
 		if (e.delta < 0){
@@ -292,19 +292,11 @@ window.onload = function() {
 					var brynne = document.getElementById("brynne");
 					var brynneStyle = brynne.style;
 					var brynneMargin = (((viewportWidth/jobsLength/6))/10)/2;
-					// var stop = 0;
-					// switch(true){
-					// 	case(window.scrollX >= ((((i-1)*viewportWidth)+twoThirdWidth) + brynnePx) && window.scrollX < ((((i-1)*viewportWidth)+twoThirdWidth) + (2*brynnePx))):
-						for(var y=0; y<1; y++){
-							brynne.src = "images/frontbigdown.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							// brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
-							// brynneMoves += 1;
-							console.log("one")
-							y+=1;
-							}
-					// 	break;
-					// }
+					for(var y=0; y<1; y++){
+						brynne.src = "images/frontbigdown.svg";
+						var currentBrynneMargin = (brynneMargin*brynneMoves);
+						y+=1;
+					}
 				break;
 				case(window.scrollX > ((i-1)*viewportWidth) && window.scrollX<(((i-1)*viewportWidth)+thirdWidth)):
 					var jobDescriptionContentSkillStyle = document.getElementsByClassName("job-description-content-skills")[i-1].style;
@@ -320,64 +312,58 @@ window.onload = function() {
 					var brynneMargin = (((viewportWidth/jobsLength/6))/10)/2;
 					switch(true){
 						case(window.scrollX >= (((i-1)*viewportWidth) + brynnePx) && window.scrollX < (((i-1)*viewportWidth) + (2*brynnePx))):
-						for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallbackward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
-							brynneMoves += 1;
-							
-							y+=1;
-						}
+							for(var y=0; y<1; y++){
+								brynne.src = "images/rightsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
+								brynneMoves += 1;
+								y+=1;
+							}
 						break;
 						case(window.scrollX >= ((i-1)*viewportWidth)+ (2*brynnePx)) && window.scrollX < (((i-1)*viewportWidth) + (3*brynnePx)):
 							for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallforward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
-							brynneMoves += 1;
-							
+								brynne.src = "images/rightsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves += 1;
 								y+=1;
-						}
+							}
 						break;
 						case(window.scrollX >= ((i-1)*viewportWidth)+(3*brynnePx)) && window.scrollX < (((i-1)*viewportWidth) + (4*brynnePx)):
 							for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallbackward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
-							brynneMoves += 1;
-							
+								brynne.src = "images/rightsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves += 1;
 								y+=1;
-						}
+							}
 						break;
 						case(window.scrollX >= ((i-1)*viewportWidth)+(4*brynnePx)) && window.scrollX < (((i-1)*viewportWidth) + (5*brynnePx)):
 							for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallforward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
-							brynneMoves += 1;
-						
+								brynne.src = "images/rightsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves += 1;
 								y+=1;
-						}
+							}
 						break;
 						case(window.scrollX >= ((i-1)*viewportWidth)+(5*brynnePx)) && window.scrollX < (((i-1)*viewportWidth) + (6*brynnePx)):
 							for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallbackward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
-							brynneMoves += 1;
-						
+								brynne.src = "images/rightsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves += 1;
 								y+=1;
-						}
+							}
 						break;
 						case(window.scrollX >= ((i-1)*viewportWidth)+(6*brynnePx)) && window.scrollX < (((i-1)*viewportWidth) + (7*brynnePx)):
 							for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallforward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
-							brynneMoves += 1;
-						
+								brynne.src = "images/rightsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves += 1;
 								y+=1;
-						}
+							}
 						break;
 					}
 				break;
@@ -425,47 +411,47 @@ window.onload = function() {
 					// var stop = 0;
 					switch(true){
 						case(window.scrollX >= (((i*viewportWidth)+thirdWidth) + brynnePx) && window.scrollX < (((i*viewportWidth)+thirdWidth) + (2*brynnePx))):
-						for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallbackward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
-							brynneMoves += 1;
-							y+=1;
+							for(var y=0; y<1; y++){
+								brynne.src = "images/rightsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
+								brynneMoves += 1;
+								y+=1;
 							}
 						break;
 						case(window.scrollX >= (((i*viewportWidth)+thirdWidth) + (2*brynnePx)) && window.scrollX < (((i*viewportWidth)+thirdWidth) + (3*brynnePx))):
 							for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallforward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
-							brynneMoves += 1;
+								brynne.src = "images/rightsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves += 1;
 								y+=1;
 							}
 						break;
 						case(window.scrollX >= (((i*viewportWidth)+thirdWidth) + (3*brynnePx)) && window.scrollX < ((((i-1)*viewportWidth)+thirdWidth) + (4*brynnePx))):
 							for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallbackward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
-							brynneMoves += 1;
+								brynne.src = "images/rightsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves += 1;
 								y+=1;
 							}
 						break;
 						case(window.scrollX >= (((i*viewportWidth)+thirdWidth) + (4*brynnePx)) && window.scrollX < (((i*viewportWidth)+thirdWidth) + (5*brynnePx))):
 							for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallforward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
-							brynneMoves += 1;
+								brynne.src = "images/rightsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves += 1;
 								y+=1;
 							}
 						break;
 						case(window.scrollX >= (((i*viewportWidth)+thirdWidth) + (5*brynnePx)) && window.scrollX < (((i*viewportWidth)+thirdWidth) + (6*brynnePx))):
 							for(var y=0; y<1; y++){
-							brynne.src = "images/rightsmallbackward.svg";
-							var currentBrynneMargin = (brynneMargin*brynneMoves);
-							brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
-							brynneMoves += 1;
+								brynne.src = "images/rightsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves += 1;
 								y+=1;
 							}
 						break;
@@ -501,6 +487,85 @@ window.onload = function() {
 						element.marginBottom = currentJob.titleMarginBottom.toString() + "px";
 						currentJob.titleMarginBottom -= 1;
 					}
+					// var brynne = document.getElementById("brynne");
+					// var brynneStyle = brynne.style;
+					// var brynneMargin = (((viewportWidth/jobsLength/6))/9)/2;
+					// for(var y=0; y<1; y++){
+					// 	brynne.src = "images/frontbigdown.svg";
+					// 	var currentBrynneMargin = (brynneMargin*brynneMoves);
+					// 	y+=1;
+					// }
+					//HERE
+					var brynne = document.getElementById("brynne");
+					var brynneStyle = brynne.style;
+					var brynneMargin = (((viewportWidth/jobsLength/6))/9)/2;
+					switch(true){
+						case(window.scrollX <= ((i*viewportWidth) + (7*brynnePx)) && window.scrollX > ((i*viewportWidth) + (6*brynnePx))):
+							for(var y=0; y<1; y++){
+								// brynneMoves-=1;
+								brynne.src = "images/leftsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
+								brynneMoves -= 1;
+								y+=1;
+								console.log("one");
+							}
+						break;
+						case(window.scrollX <= ((i*viewportWidth) + (6*brynnePx)) && window.scrollX > ((i*viewportWidth) + (5*brynnePx))):
+								for(var y=0; y<1; y++){
+								// brynneMoves -= 1;
+								brynne.src = "images/leftsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves -= 1;
+								y+=1;
+								console.log("two");
+							}
+						break;
+						case(window.scrollX <= ((i*viewportWidth) + (5*brynnePx)) && window.scrollX > ((i*viewportWidth) + (4*brynnePx))):
+							for(var y=0; y<1; y++){
+								// brynneMoves -= 1;
+								brynne.src = "images/leftsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
+								brynneMoves -= 1; 
+								y+=1;
+								console.log("three");
+							}
+						break;
+						case(window.scrollX <= ((i*viewportWidth) + (4*brynnePx)) && window.scrollX > ((i*viewportWidth) + (3*brynnePx))):
+							for(var y=0; y<1; y++){
+								// brynneMoves -= 1;
+								brynne.src = "images/leftsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneMoves -= 1;
+								y+=1;
+								console.log("four");
+							}
+						break;
+						case(window.scrollX <= ((i*viewportWidth) + (3*brynnePx)) && window.scrollX > ((i*viewportWidth) + (2*brynnePx))):
+							for(var y=0; y<1; y++){
+								// brynneMoves -= 1;
+								brynne.src = "images/leftsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								brynneMoves -= 1;
+								y+=1;
+								console.log("five");
+							}
+						break;
+						case(window.scrollX <= ((i*viewportWidth) + (2*brynnePx)) && window.scrollX > ((i*viewportWidth) + brynnePx)):
+							for(var y=0; y<1; y++){
+								// brynneMoves -= 1;
+								brynne.src = "images/leftsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								// brynneMoves -= 1;
+								y+=1;
+								console.log("six");
+							}
+						break;
+					}
 				break;
 				case(window.scrollX < (i*viewportWidth) && window.scrollX > (((i-1)*viewportWidth)+twoThirdWidth)):
 					var element = document.getElementsByClassName("job")[i-1].style;
@@ -525,6 +590,73 @@ window.onload = function() {
 					for(var x=0; x<beforeSkillsLength;x++){
 						beforeSkills[x].style.visibility = "visible";
 					}
+					var brynne = document.getElementById("brynne");
+					var brynneStyle = brynne.style;
+					var brynneMargin = (((viewportWidth/jobsLength/6))/9)/2;
+					for(var y=0; y<1; y++){
+						brynne.src = "images/frontbigdown.svg";
+						var currentBrynneMargin = (brynneMargin*brynneMoves);
+						y+=1;
+					}
+					//stand
+					// var brynne = document.getElementById("brynne");
+					// var brynneStyle = brynne.style;
+					// var brynneMargin = (((viewportWidth/jobsLength/6))/9)/2;
+					// switch(true){
+					// 	case(window.scrollX <= (((i*viewportWidth)-thirdWidth) + (7*brynnePx)) && window.scrollX > (((i*viewportWidth)-thirdWidth) + (6*brynnePx))):
+					// 		for(var y=0; y<1; y++){
+					// 			brynneMoves-=1;
+					// 			brynne.src = "images/leftsmallbackward.svg";
+					// 			var currentBrynneMargin = (brynneMargin*brynneMoves);
+					// 			brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
+					// 			y+=1;
+					// 		}
+					// 	break;
+					// 	case(window.scrollX <= (((i*viewportWidth)-thirdWidth) + (6*brynnePx)) && window.scrollX > (((i*viewportWidth)-thirdWidth) + (5*brynnePx))):
+					// 			for(var y=0; y<1; y++){
+					// 			brynneMoves -= 1;
+					// 			brynne.src = "images/leftsmallforward.svg";
+					// 			var currentBrynneMargin = (brynneMargin*brynneMoves);
+					// 			brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+					// 			y+=1;
+					// 		}
+					// 	break;
+					// 	case(window.scrollX <= (((i*viewportWidth)-thirdWidth) + (5*brynnePx)) && window.scrollX > ((((i)*viewportWidth)-thirdWidth) + (4*brynnePx))):
+					// 		for(var y=0; y<1; y++){
+					// 			brynneMoves -= 1;
+					// 			brynne.src = "images/leftsmallbackward.svg";
+					// 			var currentBrynneMargin = (brynneMargin*brynneMoves);
+					// 			brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+					// 			y+=1;
+					// 		}
+					// 	break;
+					// 	case(window.scrollX <= (((i*viewportWidth)-thirdWidth) + (4*brynnePx)) && window.scrollX > (((i*viewportWidth)-thirdWidth) + (3*brynnePx))):
+					// 		for(var y=0; y<1; y++){
+					// 			brynneMoves -= 1;
+					// 			brynne.src = "images/leftsmallforward.svg";
+					// 			var currentBrynneMargin = (brynneMargin*brynneMoves);
+					// 			y+=1;
+					// 		}
+					// 	break;
+					// 	case(window.scrollX <= (((i*viewportWidth)-thirdWidth) + (3*brynnePx)) && window.scrollX > (((i*viewportWidth)-thirdWidth) + (2*brynnePx))):
+					// 		for(var y=0; y<1; y++){
+					// 			brynneMoves -= 1;
+					// 			brynne.src = "images/leftsmallbackward.svg";
+					// 			var currentBrynneMargin = (brynneMargin*brynneMoves);
+					// 			brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+					// 			y+=1;
+					// 		}
+					// 	break;
+					// 	case(window.scrollX <= (((i*viewportWidth)-thirdWidth) + (2*brynnePx)) && window.scrollX > (((i*viewportWidth)-thirdWidth) + brynnePx)):
+					// 		for(var y=0; y<1; y++){
+					// 			brynneMoves -= 1;
+					// 			brynne.src = "images/leftsmallforward.svg";
+					// 			var currentBrynneMargin = (brynneMargin*brynneMoves);
+					// 			brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+					// 			y+=1;
+					// 		}
+					// 	break;
+					// }
 				break;
 				case(window.scrollX < (((i-1)*viewportWidth)+ twoThirdWidth) && window.scrollX > (((i-1)*viewportWidth) + thirdWidth)):
 					var element = document.getElementsByClassName("job-content-title")[i].style;
@@ -538,6 +670,71 @@ window.onload = function() {
 					while(currentJob.titleMarginBottom < viewportHeight){
 						element.marginBottom = currentJob.titleMarginBottom.toString() + "px";
 						currentJob.titleMarginBottom += 1;
+					}
+					//walk
+					var brynne = document.getElementById("brynne");
+					var brynneStyle = brynne.style;
+					var brynneMargin = (((viewportWidth/jobsLength/6))/9)/2;
+					switch(true){
+						case(window.scrollX <= ((((i-1)*viewportWidth)+thirdWidth) + (7*brynnePx)) && window.scrollX > ((((i-1)*viewportWidth)+thirdWidth) + (6*brynnePx))):
+							for(var y=0; y<1; y++){
+								brynneMoves-=1;
+								brynne.src = "images/leftsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px";
+								y+=1;
+								console.log("ome");
+							}
+						break;
+						case(window.scrollX <= ((((i-1)*viewportWidth)+thirdWidth) + (6*brynnePx)) && window.scrollX > ((((i-1)*viewportWidth)+thirdWidth) + (5*brynnePx))):
+							for(var y=0; y<1; y++){
+								brynneMoves -= 1;
+								brynne.src = "images/leftsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								y+=1;
+								console.log("two");
+							}
+						break;
+						case(window.scrollX <= ((((i-1)*viewportWidth)+thirdWidth) + (5*brynnePx)) && window.scrollX > ((((i-1)*viewportWidth)+thirdWidth) + (4*brynnePx))):
+							for(var y=0; y<1; y++){
+								brynneMoves -= 1;
+								brynne.src = "images/leftsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								y+=1;
+								console.log("three");
+							}
+						break;
+						case(window.scrollX <= ((((i-1)*viewportWidth)+thirdWidth) + (4*brynnePx)) && window.scrollX > ((((i-1)*viewportWidth)+thirdWidth) + (3*brynnePx))):
+							for(var y=0; y<1; y++){
+								brynneMoves -= 1;
+								brynne.src = "images/leftsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								y+=1;
+								console.log("four");
+							}
+						break;
+						case(window.scrollX <= ((((i-1)*viewportWidth)+thirdWidth) + (3*brynnePx)) && window.scrollX > ((((i-1)*viewportWidth)+thirdWidth) + (2*brynnePx))):
+							for(var y=0; y<1; y++){
+								brynneMoves -= 1;
+								brynne.src = "images/leftsmallbackward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								y+=1;
+								console.log("five");
+							}
+						break;
+						case(window.scrollX <= ((((i-1)*viewportWidth)+thirdWidth) + (2*brynnePx)) && window.scrollX > ((((i-1)*viewportWidth)+thirdWidth) + brynnePx)):
+							for(var y=0; y<1; y++){
+								brynneMoves -= 1;
+								brynne.src = "images/leftsmallforward.svg";
+								var currentBrynneMargin = (brynneMargin*brynneMoves);
+								brynneStyle.marginLeft = currentBrynneMargin.toString() + "px"; 
+								y+=1;
+								console.log("six");
+							}
+						break;
 					}
 				break;
 				case(window.scrollX > (i*viewportWidth) && window.scrollX < ((i*viewportWidth) + twoThirdWidth)):
